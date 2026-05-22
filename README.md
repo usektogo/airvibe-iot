@@ -50,6 +50,20 @@ Examples:
 
 ---
 
+## Project in Practice
+
+Real AirVibe deployments and hardware examples:
+
+| Field deployment | Urban monitoring |
+|---|---|
+| ![Balcony AirVibe station](images/deployments/balcony-airvibe-station.jpg) | ![Dual urban AirVibe stations](images/deployments/dual-airvibe-urban-stations.jpg) |
+
+| Hardware kit | Assembled node |
+|---|---|
+| ![AirVibe kit overview](images/hardware/airvibe-kit-overview.jpg) | ![Assembled AirVibe node](images/hardware/assembled-airvibe-node.jpg) |
+
+---
+
 ## Architecture
 
 ![AirVibe Architecture Overview](images/airvibe-architecture-overview.png)
