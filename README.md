@@ -52,6 +52,8 @@ Examples:
 
 ## Architecture
 
+![AirVibe Architecture Overview](images/airvibe-architecture-overview.png)
+
 ```text
 Sensors → Raspberry Pi → InfluxDB → Grafana → Web Dashboard
 ```
