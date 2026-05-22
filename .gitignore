@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.venv/
+pimoroni/
+ee08-env/
+
+# Logs
+*.log
+logs/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Raspberry Pi / Linux temp
+*.swp
+*.swo
+*~
+
+# Influx / cache / temp
+cache/
+cache_bad/
+tmp/
+
+# VS Code
+.vscode/
+
+# Environment / secrets
+.env
+*.env
+
+# SSH / keys
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Tailscale
+tailscale-state*
+
+# Build artifacts
+dist/
+build/
