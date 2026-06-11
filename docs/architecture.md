@@ -2,15 +2,18 @@
 
 ## Overview
 
-AirVibe is a distributed environmental monitoring infrastructure built around Raspberry Pi sensor nodes, centralized time-series storage and remote visualization.
+AirVibe is a distributed environmental monitoring infrastructure built around Raspberry Pi sensor stations, centralized data storage and public access to environmental information.
 
-The system is designed to be:
-- modular
-- low-cost
-- remotely maintainable
-- educational
-- scalable
-- community-friendly
+The platform combines research, personal and citizen-operated monitoring stations into a shared environmental monitoring network.
+
+The architecture is designed to be:
+
+* modular
+* low-cost
+* remotely maintainable
+* reproducible
+* scalable
+* educational
 
 ---
 
@@ -19,158 +22,209 @@ The system is designed to be:
 ```text
 Sensors
    ↓
-Raspberry Pi station
+Raspberry Pi Node
    ↓
-Tailscale secure network
+Tailscale Network
    ↓
-Central InfluxDB
+Central InfluxDB (Synology NAS)
    ↓
-Grafana dashboards
+Grafana
    ↓
-Web visualization / community access
+Public Access
+   ├─ airvibe.info
+   └─ future community services
 ```
 
+Environmental data is collected locally at each monitoring station and transmitted to a centralized backend where it is stored, visualized and made available through public and private services.
+
 ---
 
-## Main Components
+## Deployment Types
 
-## 1. Sensor Stations
+AirVibe currently includes a combination of:
+
+### Research Stations
+
+Stations operated as part of environmental monitoring and research activities.
+
+Examples include:
+
+* EIMV laboratory deployments
+* OMS Ljubljana
+* other research-oriented installations
+
+### Personal Monitoring Stations
+
+Stations operated by project contributors for development, testing and long-term monitoring.
+
+### Citizen-Operated Stations
+
+Stations operated outside the research environment by individual participants interested in environmental monitoring and open data.
+
+### Pilot Installations
+
+Temporary or experimental deployments used to evaluate locations, sensors or monitoring concepts.
+
+Station locations and deployment types may evolve over time as monitoring priorities and project goals change.
+
+---
+
+## Sensor Stations
 
 Each AirVibe node is typically based on:
-- Raspberry Pi Zero 2 W
-- Raspberry Pi 3/4/5
 
-Possible sensors include:
-- Pimoroni Enviro+
-- PMS5003
-- TSL2591
-- EE08
-- environmental serial sensors
-- future soil and agricultural sensors
+* Raspberry Pi Zero 2 W
+* Raspberry Pi 3
+* Raspberry Pi 4
+* Raspberry Pi 5
+
+Common sensor integrations include:
+
+* Pimoroni Enviro+
+* PMS5003 particulate sensor
+* TSL2591 light sensor
+* EE08 temperature and humidity probe
+* environmental serial sensors
+
+Future developments may include:
+
+* soil monitoring
+* greenhouse monitoring
+* agricultural sensors
+* microclimate monitoring
 
 Stations can operate:
-- indoors
-- outdoors
-- in schools
-- in laboratories
-- in municipalities
-- in agricultural environments
+
+* indoors
+* outdoors
+* laboratories
+* residential locations
+* educational environments
+* agricultural environments
 
 ---
 
-## 2. Raspberry Pi Node Logic
+## Raspberry Pi Node Logic
 
-Each node:
-- reads sensor data
-- formats measurements
-- stores temporary cache if offline
-- sends data to InfluxDB
-- runs as a systemd service
-- supports remote maintenance
+Each station is responsible for:
 
-Many nodes also include:
-- watchdog recovery
-- network self-healing
-- cache resend mechanisms
-- clock synchronization protection
+* collecting sensor measurements
+* preprocessing environmental data
+* handling temporary data buffering
+* transmitting measurements to InfluxDB
+* supporting remote maintenance
 
----
+Most production nodes operate as automated services and are designed for unattended operation.
 
-## 3. Tailscale Network
+Additional features may include:
 
-AirVibe uses Tailscale for:
-- secure remote access
-- SSH connectivity
-- cross-network communication
-- simplified deployment
-
-Advantages:
-- no complex VPN setup
-- secure mesh connectivity
-- easy scaling
-- remote troubleshooting
+* watchdog recovery
+* automatic restart mechanisms
+* cached data retransmission
+* network resilience measures
 
 ---
 
-## 4. InfluxDB Backend
+## Tailscale Network
 
-Sensor data is stored in a centralized InfluxDB instance.
+AirVibe uses Tailscale as the primary connectivity layer between distributed monitoring stations and central infrastructure.
 
-The database stores:
-- temperature
-- humidity
-- pressure
-- PM measurements
-- light measurements
-- environmental metadata
+Tailscale provides:
 
-Benefits:
-- efficient time-series storage
-- fast querying
-- scalable architecture
-- easy Grafana integration
+* secure remote access
+* SSH connectivity
+* cross-network communication
+* simplified deployment and maintenance
+
+This approach allows stations to operate across different networks without requiring complex VPN configuration.
 
 ---
 
-## 5. Grafana Visualization
+## InfluxDB Backend
 
-Grafana is used for:
-- live dashboards
-- historical analysis
-- sensor monitoring
-- alerting
-- public/community visualization
+Environmental data is stored in a centralized InfluxDB instance hosted on a Synology NAS.
 
-Dashboards can support:
-- schools
-- municipalities
-- researchers
-- farmers
-- citizen science initiatives
+The database stores measurements such as:
 
----
+* temperature
+* humidity
+* pressure
+* particulate matter
+* light intensity
+* station metadata
 
-## 6. Educational Direction
+Centralized storage enables:
 
-AirVibe is also intended as:
-- a STEM learning platform
-- a Raspberry Pi educational ecosystem
-- an environmental literacy tool
-- an open infrastructure learning project
-
-Students can learn:
-- sensors
-- Linux
-- Python
-- networking
-- databases
-- visualization
-- environmental science
+* long-term data retention
+* historical analysis
+* cross-location comparison
+* dashboard visualization
+* future data sharing
 
 ---
 
-## 7. Future Expansion
+## Grafana Visualization
 
-Planned future directions:
-- soil monitoring
-- greenhouse monitoring
-- public live map
-- educational deployment kits
-- simplified node installer
-- open API
-- automated provisioning
-- AI-assisted environmental analysis
+Grafana is used as the primary visualization platform.
+
+Current dashboards support:
+
+* environmental monitoring
+* historical analysis
+* station diagnostics
+* operational oversight
+
+Future dashboard profiles may support:
+
+* educational deployments
+* municipal monitoring
+* citizen science initiatives
+* agricultural users
+
+---
+
+## Educational Direction
+
+AirVibe also serves as a practical STEAM and environmental learning platform.
+
+The project provides opportunities to learn:
+
+* environmental science
+* sensors and instrumentation
+* Linux
+* Python
+* networking
+* databases
+* data visualization
+* open-source technologies
+
+The goal is to make environmental monitoring understandable and accessible while encouraging hands-on learning.
+
+---
+
+## Future Development
+
+Planned future directions include:
+
+* simplified node deployment
+* educational deployment kits
+* open API access
+* community dashboards
+* enhanced station status monitoring
+* agricultural monitoring modules
+* AI-assisted environmental analysis
 
 ---
 
 ## Design Philosophy
 
 AirVibe focuses on:
-- accessibility
-- openness
-- reproducibility
-- modularity
-- educational value
-- environmental awareness
 
-The goal is to create understandable environmental infrastructure that communities can build, maintain and expand themselves.
+* openness
+* accessibility
+* reproducibility
+* practical deployment
+* educational value
+* environmental awareness
+
+The goal is not only to collect environmental data, but also to create understandable infrastructure that people can learn from, contribute to and expand over time.
