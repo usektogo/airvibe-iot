@@ -1,52 +1,50 @@
 # AirVibe IoT
 
-Open environmental infrastructure built with Raspberry Pi.
+Open environmental monitoring infrastructure built with Raspberry Pi.
 
-AirVibe combines environmental monitoring, open-source infrastructure, education, citizen science and community-driven sensing into a modular ecosystem for schools, municipalities, researchers and agriculture.
+AirVibe is a distributed network of low-cost sensor stations deployed across Slovenia. It combines open-source hardware and software into a practical platform for environmental monitoring, research, education and community participation.
 
 ---
 
 ## Vision
 
-AirVibe is designed as an open environmental platform that connects:
+Environmental monitoring should be accessible, understandable and reproducible.
 
-- schools and STEM education
-- citizen science initiatives
-- municipalities and local communities
-- researchers and environmental monitoring
-- agriculture and microclimate observation
-- Raspberry Pi and open-source ecosystems
-
-The goal is to make environmental sensing more accessible, understandable and reproducible.
+AirVibe connects sensor stations, open data and communities — bridging researchers, educators, municipalities, citizens and agricultural users through shared environmental infrastructure.
 
 ---
 
 ## Features
 
-- Raspberry Pi based sensor stations
-- Distributed environmental monitoring
-- Real-time data collection
-- InfluxDB time-series backend
-- Grafana dashboards
-- Remote connectivity with Tailscale
-- Low-cost deployments
-- Modular architecture
-- Educational and community-oriented design
+* Raspberry Pi based sensor stations (indoor + outdoor)
+* Real-time data collection and centralized InfluxDB storage
+* Grafana dashboards and visualizations
+* Secure remote management with Tailscale
+* Public live map and open data access
+* Modular, low-cost and reproducible hardware design
 
 ---
 
 ## Current Deployments
 
-Current AirVibe stations include indoor and outdoor deployments across multiple locations.
+Current stations include:
 
-Examples:
-- Radovljica
-- OMS Ljubljana
-- Lancovo
-- Kamna Gorica
-- Postojna
-- Polhov Gradec
-- EIMV laboratory
+* OMS Ljubljana
+* Kamna Gorica (farm + quarry environment)
+* EIMV laboratories
+* Lancovo
+* Postojna
+* Polhov Gradec
+
+The deployment network changes over time as stations are added, relocated, upgraded or retired.
+
+---
+
+## Public Map
+
+Live station locations and environmental data:
+
+https://airvibe.info
 
 ---
 
@@ -54,12 +52,12 @@ Examples:
 
 Real AirVibe deployments and hardware examples:
 
-| Field deployment | Urban monitoring |
-|---|---|
+| Field deployment                                                           | Urban monitoring                                                                   |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | ![Balcony AirVibe station](images/deployments/balcony-airvibe-station.jpg) | ![Dual urban AirVibe stations](images/deployments/dual-airvibe-urban-stations.jpg) |
 
-| Hardware kit | Assembled node |
-|---|---|
+| Hardware kit                                                      | Assembled node                                                        |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------- |
 | ![AirVibe kit overview](images/hardware/airvibe-kit-overview.jpg) | ![Assembled AirVibe node](images/hardware/assembled-airvibe-node.jpg) |
 
 ---
@@ -69,51 +67,82 @@ Real AirVibe deployments and hardware examples:
 ![AirVibe Architecture Overview](images/airvibe-architecture-overview.png)
 
 ```text
-Sensors → Raspberry Pi → InfluxDB → Grafana → Web Dashboard
+Sensors → Raspberry Pi → InfluxDB → Grafana → Web Applications
 ```
 
-More detailed architecture documentation will be added in `/docs`.
+Distributed Raspberry Pi nodes send data to a centralized backend for storage, visualization and public access.
+
+Detailed documentation is available in `/docs`.
 
 ---
 
 ## Documentation
 
-Project documentation is being organized into the `/docs` directory.
+Project documentation is organized in `/docs`.
 
-Planned sections:
-- station documentation
-- deployment guides
-- architecture diagrams
-- Grafana setup
-- InfluxDB setup
-- Tailscale connectivity
-- educational deployment guides
+Current sections include:
+
+* Architecture
+* Deployment
+* InfluxDB
+* Grafana
+* Tailscale
+* Quick Start
+
+Documentation is continuously updated as the project evolves.
 
 ---
 
 ## Community Direction
 
-AirVibe is evolving into:
-- an educational platform
-- a citizen science network
-- a municipal pilot framework
-- an agricultural monitoring ecosystem
-- an open environmental infrastructure project
+AirVibe currently operates as a distributed environmental monitoring network consisting of research, personal and citizen-operated monitoring stations.
+
+The network includes a mix of:
+
+* research deployments
+* independent monitoring sites
+* citizen-operated stations
+* pilot installations
+
+AirVibe is a living project. Station locations, deployments and monitoring activities may change over time as new sites are added, existing stations are relocated, pilot campaigns are completed or research priorities evolve.
+
+The station network visible today represents the current state of the project and should be viewed as a snapshot rather than a fixed deployment.
+
+As of July 2026, AirVibe combines research-oriented monitoring with early citizen participation and serves as a foundation for future community-based environmental monitoring initiatives.
+
+Potential future directions include:
+
+* STEAM and environmental education
+* citizen science projects
+* municipal pilot deployments
+* agricultural and microclimate monitoring
+* open environmental data initiatives
 
 ---
 
 ## Roadmap
 
-- [x] Distributed Raspberry Pi sensor nodes
-- [x] Centralized InfluxDB backend
-- [x] Grafana dashboards
-- [x] Remote management with Tailscale
-- [ ] Public live map
-- [ ] Simplified node deployment
-- [ ] Educational kits for schools
-- [ ] Open API
-- [ ] Community dashboards
-- [ ] Agricultural monitoring modules
+* [x] Distributed Raspberry Pi sensor nodes
+
+* [x] Centralized InfluxDB backend
+
+* [x] Grafana dashboards
+
+* [x] Remote management with Tailscale
+
+* [x] Public live map
+
+* [ ] Simplified node deployment
+
+* [ ] Educational kits for schools
+
+* [ ] Open API
+
+* [ ] Community dashboards
+
+* [ ] Enhanced station status monitoring
+
+* [ ] Agricultural monitoring modules
 
 ---
 
@@ -121,7 +150,6 @@ AirVibe is evolving into:
 
 ```text
 airvibe-iot/
-│
 ├── README.md
 ├── docs/
 ├── diagrams/
@@ -134,12 +162,12 @@ airvibe-iot/
 
 ## Philosophy
 
-AirVibe is not only an air quality project.
+AirVibe is more than an air quality project.
 
-It is an attempt to build open, understandable and community-driven environmental infrastructure using accessible hardware and open-source tools.
+It is an effort to build open, understandable and community-driven environmental infrastructure — using accessible hardware, open-source software and shared data to make environmental monitoring practical, educational and reproducible.
 
 ---
 
 ## License
 
-License information will be added soon.
+MIT License
