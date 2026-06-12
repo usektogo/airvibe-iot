@@ -1,6 +1,6 @@
 # Hi, I'm Urška 👋
 
-**Ecologist · IoT Builder · univ. dipl. ekologinja**
+**Ecologist · IoT Builder · BSc in Environmental Sciences**
 
 Nature shaped me before I began to understand it.
 I build sensor networks because the most direct path from a question to an answer is measurement.
