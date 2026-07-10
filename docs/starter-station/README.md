@@ -1,32 +1,21 @@
 # AirVibe Starter Station Documentation
 
-This directory contains the currently released documentation for the verified AirVibe Starter Station reference implementation.
+Follow the documents in order to build and prepare the verified AirVibe Starter Station reference implementation.
 
-> **Publication status:** Documentation preview. This is not yet an official project release. The complete GitHub Project Release Workflow will begin only after the full planned documentation set is completed and approved.
+> **Status:** Documentation preview. The official project release will follow after the complete documentation set and release review are finished.
 
-## Documentation
+## Start here
 
-### Reference
+| Step | Document | Purpose |
+|---:|---|---|
+| Reference | [Reference Operating System](00-Reference/reference-os.md) | Defines the verified operating system baseline. |
+| 1 | [Hardware](01-Hardware/hardware.md) | Introduces the required components. |
+| 2 | [Bill of Materials](01-Hardware/bill-of-materials.md) | Lists components and estimated costs. |
+| 3 | [Assembly Guide](02-Assembly/assembly.md) | Explains physical assembly. |
+| 4 | [Operating System Installation](03-Software/flash-sd-card.md) | Prepares the microSD card. |
+| 5 | [First Boot](03-Software/first-boot.md) | Verifies startup, SSH, networking, and updates. |
+| 6 | [Enable Interfaces](03-Software/enable-interfaces.md) | Enables I²C and the hardware serial interface. |
 
-- [Reference Operating System](00-Reference/reference-os.md)
+## Next document
 
-### Hardware
-
-- [Hardware](01-Hardware/hardware.md)
-- [Bill of Materials](01-Hardware/bill-of-materials.md)
-
-### Assembly
-
-- [Assembly Guide](02-Assembly/assembly.md)
-
-### Software
-
-- DOC 4 — Operating System Installation: pending corrected source file
-- [DOC 5 — First Boot](03-Software/first-boot.md)
-- [DOC 6 — Enable Interfaces](03-Software/enable-interfaces.md)
-
-## Known limitations
-
-- Image assets referenced by the Markdown files have not yet been added to this branch.
-- The uploaded `flash-sd-card.md` source contained DOC 6 content and was therefore not published as DOC 4.
-- DOC 7 and subsequent documents are still under development.
+DOC 7 — Install Enviro+ is the current working document and will be added after verification and approval.
