@@ -1,23 +1,24 @@
-# Hi, I'm Urška 👋
+# AirVibe IoT
 
-**Ecologist · IoT Builder · BSc in Environmental Sciences**
+Open-source environmental monitoring built on a verified Raspberry Pi reference implementation.
 
-Nature shaped me before I began to understand it.
-I build sensor networks because the most direct path from a question to an answer is measurement.
+## Documentation
 
-I commute too much and use every spare moment to work towards something closer to the ground.
+Start with the [AirVibe Starter Station documentation](docs/starter-station/README.md).
 
-## What I build
+The current documentation covers:
 
-- 🌬️ **AirVibe** — air quality monitoring network across Slovenia. Raspberry Pi, Python, InfluxDB, Grafana. Running 24/7.
-- 🌱 **SoilVibe** — soil microclimate and light monitoring for plants. Currently: basil experiment under LED vs. daylight.
+- hardware and bill of materials
+- physical assembly
+- operating system installation
+- first boot
+- required hardware interfaces
 
-## How I work
+## Project status
 
-Open source. Real hardware. Real data. No simulation.
+The project is under active development. Documentation is published after engineering verification and review.
 
 ## Links
 
-🌐 [ukstudiolab.com](https://ukstudiolab.com)
-✉️ [info@ukstudiolab.com](mailto:info@ukstudiolab.com)
-💼 [LinkedIn](https://www.linkedin.com/in/urska-kugovnik)
+- [UK Studio Lab](https://ukstudiolab.com)
+- [LinkedIn](https://www.linkedin.com/in/urska-kugovnik)
