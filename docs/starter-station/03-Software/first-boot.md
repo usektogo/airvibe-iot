@@ -3,23 +3,34 @@
 **Document ID:** DOC 5  
 **Category:** 03-Software  
 **Status:** Released  
-**Version:** 1.0.1  
+**Version:** 1.1.0  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
 **Reference Image:** `2023-05-03-raspios-bullseye-armhf-lite.img.xz`  
-**Estimated Time:** 15–30 minutes (depending on updates)  
+**Reference Hostname:** `aq-off`  
+**Reference Network Connection:** Wi-Fi only  
+**Reference Discovery Tool:** Advanced IP Scanner  
+**Reference SSH Client:** PuTTY  
+**Estimated Time:** 20–45 minutes  
 **Difficulty:** Beginner
 
 ---
 
 # Overview
 
-This document describes the first boot procedure for the AirVibe Starter Station reference implementation after the verified AirVibe reference operating system has been written to the microSD card.
+This document describes the verified first boot procedure for the AirVibe Starter Station.
 
-The procedure verifies that the Raspberry Pi starts correctly, is reachable over the network using SSH, has Internet connectivity, and is fully updated before continuing with software configuration.
+The procedure covers:
 
-This document is based on the AirVibe reference operating system described in **REFERENCE DOC A — Reference Operating System**.
+- starting the Raspberry Pi for the first time
+- waiting for the initial operating system configuration
+- locating the station on the local Wi-Fi network
+- confirming that the station is reachable
+- connecting through SSH using PuTTY
+- verifying and updating the operating system
+
+The AirVibe Starter Station reference implementation uses Wi-Fi only. Ethernet is not part of this procedure.
 
 ---
 
@@ -27,232 +38,349 @@ This document is based on the AirVibe reference operating system described in **
 
 Before starting, ensure that:
 
-- The verified AirVibe reference operating system image (`2023-05-03-raspios-bullseye-armhf-lite.img.xz`) has been successfully written to the microSD card.
-- SSH has been enabled during OS imaging.
-- Network (Wi-Fi or Ethernet) has been configured during OS imaging.
-- The microSD card is installed in the Raspberry Pi.
-- The Raspberry Pi is connected to power.
+- The verified AirVibe reference operating system image has been written to the microSD card.
+- Hostname `aq-off` was configured in Raspberry Pi Imager.
+- The correct Wi-Fi network name and password were configured.
+- The correct wireless LAN country was configured.
+- SSH was enabled.
+- The configured station username and password are available.
+- The prepared microSD card is inserted into the Raspberry Pi.
+- Advanced IP Scanner is installed on the Windows computer.
+- PuTTY is installed on the Windows computer.
 
 ---
 
-# Boot the Raspberry Pi
+# Critical Network Requirement
 
-1. Insert the prepared microSD card into the Raspberry Pi.
-2. Connect the network cable if using Ethernet.
-3. Connect the power supply.
-4. Wait for the Raspberry Pi to complete its first boot.
+> **Important**
+>
+> The Raspberry Pi and the Windows computer must be connected to the same local network.
+>
+> The Raspberry Pi connects through the Wi-Fi network configured in Raspberry Pi Imager. The computer must be connected to that same network before scanning or attempting an SSH connection.
 
-The initial boot may take longer than subsequent startups.
+A computer connected to a different Wi-Fi network, guest network, mobile hotspot, or isolated network segment may not be able to discover or reach the Raspberry Pi.
 
-During the first boot, Raspberry Pi OS performs its initial system configuration and applies the settings configured during the imaging process.
-
-Allow several minutes before attempting to connect to the device.
+Do not continue until the computer's network connection has been confirmed.
 
 ---
 
-# Connect Using SSH
+# Step 1 — Power On the Raspberry Pi
 
-From another computer on the same network, connect to the Raspberry Pi using SSH.
+1. Confirm that the prepared microSD card is fully inserted.
+2. Connect the Raspberry Pi power supply.
+3. Leave the Raspberry Pi powered on while the initial startup completes.
 
-If multicast DNS (mDNS) is available on your network, connect using the configured hostname.
+No monitor, keyboard, mouse, or Ethernet cable is required.
 
-```bash
-ssh <username>@<hostname>.local
-```
+---
 
-Alternatively, connect using the Raspberry Pi's assigned IP address.
+# Step 2 — Wait for the First Boot
 
-```bash
-ssh <username>@<ip-address>
-```
+The first boot takes longer than a normal restart.
 
-If prompted to verify the host fingerprint, type:
+During the initial startup, Raspberry Pi OS may:
+
+- expand the filesystem
+- apply the configuration created by Raspberry Pi Imager
+- initialize the Wi-Fi interface
+- connect to the configured wireless network
+- start the SSH service
+
+Wait at least **5 minutes** before attempting the first network scan.
+
+On slower microSD cards or Wi-Fi networks, the station may require additional time before it appears.
+
+### Important
+
+Do not disconnect power while the first boot is still in progress.
+
+The Raspberry Pi not appearing immediately in Advanced IP Scanner does not necessarily indicate a failed installation.
+
+---
+
+# Step 3 — Confirm the Computer Is on the Same Network
+
+On the Windows computer, confirm that the active Wi-Fi connection is the same network configured for the Raspberry Pi during the imaging procedure.
+
+Check the Wi-Fi network name shown in Windows and compare it with the SSID entered in Raspberry Pi Imager.
+
+Proceed only when both devices are expected to be on the same local network.
+
+---
+
+# Step 4 — Locate the Raspberry Pi
+
+Open **Advanced IP Scanner**.
+
+Scan the local network and look for the reference hostname:
 
 ```text
-yes
+aq-off
 ```
 
-Then enter the user password when prompted.
+Record the IP address shown for `aq-off`.
 
-After a successful login, the Raspberry Pi shell prompt should appear.
+Example:
+
+```text
+192.168.1.120
+```
+
+The assigned address will depend on the local network and may change after a restart unless a DHCP reservation is configured.
+
+## If the Hostname Is Not Displayed
+
+The scanner may show the Raspberry Pi without a recognizable hostname.
+
+Look for:
+
+- a newly appearing IP address
+- a device identified as Raspberry Pi
+- a device manufacturer associated with Raspberry Pi hardware
+
+If necessary, compare scan results before and after powering the Raspberry Pi to identify the new device.
+
+A router or access point DHCP client list may also be used to confirm the assigned IP address.
 
 ---
 
-# Verify Network Connectivity
+# Step 5 — If the Raspberry Pi Is Not Found
 
-Verify that the Raspberry Pi can communicate with the Internet.
+First-boot discovery can be slow and may require more than one scan. This can be especially confusing during an initial installation.
 
-```bash
-ping -c 4 google.com
-```
+Use the following sequence:
 
-Successful output should show transmitted and received packets without packet loss.
+1. Confirm again that the computer is connected to the same Wi-Fi network configured for the Raspberry Pi.
+2. Wait another **3–5 minutes**.
+3. Run a new scan in Advanced IP Scanner.
+4. Check whether `aq-off` or a new IP address appears.
+5. If the station is still not visible after sufficient waiting, disconnect the Raspberry Pi power supply.
+6. Wait approximately **10 seconds**.
+7. Reconnect power.
+8. Allow the Raspberry Pi to boot for at least **3–5 minutes**.
+9. Scan the network again.
 
-If the command fails, the cause may be a network connectivity problem or a DNS resolution issue.
+During an initial installation, the Raspberry Pi may become visible only after the second boot and a repeated network scan.
 
-Confirm that the Raspberry Pi is connected to the network and that DNS is functioning correctly before continuing.
+### Important
 
-The command automatically stops after sending four packets.
+Do not repeatedly disconnect and reconnect power at short intervals.
+
+Always allow enough time for the operating system to finish booting before deciding that the station is unavailable.
+
+If the station remains unavailable after the second boot, verify the Wi-Fi SSID, password, wireless LAN country, microSD card image, and power supply before repeating the imaging procedure.
 
 ---
 
-# Verify Hostname
+# Step 6 — Verify Network Reachability
 
-Display the configured hostname.
+After identifying the IP address, open **Command Prompt** on the Windows computer.
+
+Test the IP address:
+
+```cmd
+ping 192.168.1.120
+```
+
+Replace `192.168.1.120` with the address reported by Advanced IP Scanner.
+
+A reply confirms that the station is reachable from the computer.
+
+You may also test the hostname:
+
+```cmd
+ping aq-off.local
+```
+
+### Note
+
+The `.local` hostname depends on multicast DNS support and may not work on every Windows or network configuration.
+
+Failure of `ping aq-off.local` does not prove that the Raspberry Pi is offline. Use the IP address from Advanced IP Scanner as the reference connection method.
+
+Some networks or firewall configurations may also block ping while SSH remains available. Continue with PuTTY when the IP address is known.
+
+---
+
+# Step 7 — Connect Using PuTTY
+
+Open **PuTTY** on the Windows computer.
+
+Configure the session:
+
+```text
+Host Name (or IP address): <IP address from Advanced IP Scanner>
+Port: 22
+Connection type: SSH
+```
+
+Example:
+
+```text
+Host Name (or IP address): 192.168.1.120
+Port: 22
+Connection type: SSH
+```
+
+Select **Open**.
+
+On the first connection, PuTTY may display a security alert for the server host key.
+
+Confirm the host key only when the IP address matches the Raspberry Pi identified during the network scan.
+
+---
+
+# Step 8 — Log In
+
+When the PuTTY terminal opens, enter the username configured in Raspberry Pi Imager.
+
+Then enter the configured password.
+
+The password is not displayed while typing. This is normal terminal behavior.
+
+A successful login displays the Raspberry Pi shell prompt.
+
+Do not continue until the PuTTY session is open and commands can be entered successfully.
+
+---
+
+# Step 9 — Verify the Hostname
+
+Run:
 
 ```bash
 hostname
 ```
 
-The hostname uniquely identifies the Raspberry Pi on the network.
+Expected result:
 
-Verify that the displayed hostname matches the expected AirVibe system hostname.
+```text
+aq-off
+```
+
+If a different hostname is shown, stop and verify whether the correct microSD card and Raspberry Pi were used.
 
 ---
 
-# Verify Disk Space
+# Step 10 — Verify Internet Connectivity
 
-Display filesystem usage.
+Run:
+
+```bash
+ping -c 4 google.com
+```
+
+Successful replies confirm that the Raspberry Pi has network and DNS connectivity.
+
+If the command fails, check the Wi-Fi configuration and Internet access before continuing.
+
+---
+
+# Step 11 — Verify Disk Space
+
+Run:
 
 ```bash
 df -h
 ```
 
-This command confirms that the operating system has correctly expanded the filesystem and that sufficient free storage is available for software installation and future updates.
-
-Verify that:
+Confirm that:
 
 - the root filesystem is mounted correctly
-- sufficient free space is available for software installation
+- the filesystem has expanded to use the microSD card
+- sufficient free space is available
 
 ---
 
-# Update Package Lists
+# Step 12 — Update Package Lists
 
-Refresh the package index.
+Run:
 
 ```bash
 sudo apt update
 ```
 
-This command downloads the latest package information from the configured software repositories.
-
-It does not install updates but ensures the system knows which package versions are currently available.
-
 Allow the command to complete successfully before continuing.
 
 ---
 
-# Upgrade Installed Packages
+# Step 13 — Upgrade Installed Packages
 
-Install all available package updates.
+Run:
 
 ```bash
 sudo apt full-upgrade -y
 ```
 
-This command upgrades installed packages to their latest available versions and resolves package dependency changes required by the update.
+The upgrade may take several minutes, depending on the Wi-Fi connection and the number of available packages.
 
-The operating system should be fully updated before installing additional software.
-
-This ensures that all subsequent installation steps are performed on the verified AirVibe reference platform.
-
-Depending on the Internet connection and the number of available updates, this process may take several minutes.
-
-Allow the upgrade to complete without interruption.
+Do not interrupt power or close the PuTTY session while the package manager is actively installing updates.
 
 ---
 
-# Remove Unused Packages
+# Step 14 — Remove Unused Packages
 
-Remove packages that are no longer required.
+Run:
 
 ```bash
 sudo apt autoremove -y
 ```
 
-Removing unused packages keeps the operating system clean by deleting software that is no longer required after the upgrade process.
-
 ---
 
-# Clean Package Cache
+# Step 15 — Clean the Package Cache
 
-Remove downloaded package files that are no longer required.
+Run:
 
 ```bash
 sudo apt clean
 ```
 
-This command clears the local package cache by removing downloaded installation files that are no longer needed.
-
-Cleaning the cache helps recover disk space without affecting installed software.
-
 ---
 
-# Reboot if Required
+# Step 16 — Reboot the Raspberry Pi
 
-Some updates require a reboot before they become active.
-
-If a reboot is recommended, restart the Raspberry Pi.
+Run:
 
 ```bash
 sudo reboot
 ```
 
-Wait for the system to restart completely before reconnecting via SSH.
+The PuTTY session will close when the Raspberry Pi restarts.
 
-Reconnect using:
+Wait at least **2–3 minutes** before reconnecting.
 
-```bash
-ssh <username>@<hostname>.local
-```
+Run Advanced IP Scanner again if the previous IP address no longer responds. The router may assign a different address after reboot.
 
-or, if you connected using an IP address:
-
-```bash
-ssh <username>@<ip-address>
-```
+Reconnect through PuTTY using the current IP address.
 
 ---
 
-# Final Verification
+# Completion Check
 
-After reconnecting, verify that the system is operating normally.
+Confirm that:
 
-Perform the following checks:
+- [ ] The Raspberry Pi completed its first boot.
+- [ ] The computer and Raspberry Pi were connected to the same local network.
+- [ ] `aq-off` or its assigned IP address was located with Advanced IP Scanner.
+- [ ] The station was reachable by IP address.
+- [ ] A PuTTY SSH session was established successfully.
+- [ ] The reported hostname is `aq-off`.
+- [ ] Internet connectivity was verified.
+- [ ] Disk space was verified.
+- [ ] Package update and upgrade commands completed without errors.
+- [ ] The Raspberry Pi rebooted successfully.
+- [ ] A final PuTTY connection was established after reboot.
 
-- Confirm that an SSH connection can be established successfully.
-- Verify that Internet connectivity is available.
-- Verify that the expected hostname is reported.
-- Confirm that sufficient disk space remains available.
-- Ensure that all package updates completed successfully.
-- Verify that no package management errors were reported during the update process.
-
-Completing these checks confirms that the Raspberry Pi is ready for the next stage of software configuration.
-
----
-
-# Final Verification Checklist
-
-- [ ] Raspberry Pi boots successfully.
-- [ ] SSH connection established.
-- [ ] Network connectivity verified.
-- [ ] Hostname verified.
-- [ ] Disk space verified.
-- [ ] `sudo apt update` completed successfully.
-- [ ] `sudo apt full-upgrade -y` completed successfully.
-- [ ] `sudo apt autoremove -y` completed successfully.
-- [ ] `sudo apt clean` completed successfully.
-- [ ] Raspberry Pi rebooted if required.
-- [ ] Final SSH login successful.
-- [ ] System ready for further configuration.
+The AirVibe Starter Station is now ready for interface configuration.
 
 ---
 
 # Related Documents
 
-- DOC 4 — Operating System Installation (`flash-sd-card.md`)
-- REFERENCE DOC A — Reference Operating System
+- [DOC 4 — Operating System Installation](flash-sd-card.md)
+- [REFERENCE DOC A — Reference Operating System](../00-Reference/reference-os.md)
+- [DOC 6 — Enable Interfaces](enable-interfaces.md)
 
 ---
 
@@ -260,4 +388,4 @@ Completing these checks confirms that the Raspberry Pi is ready for the next sta
 
 Continue with:
 
-`DOC 6 — enable-interfaces.md`
+[DOC 6 — Enable Interfaces](enable-interfaces.md)
