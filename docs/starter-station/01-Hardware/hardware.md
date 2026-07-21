@@ -1,9 +1,9 @@
 # DOC 1 — AirVibe Starter Station v1 Hardware
 
 **Document ID:** DOC 1  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 **Status:** Released  
-**Last Updated:** 2026-07-03
+**Last Updated:** 2026-07-21
 
 ---
 
@@ -83,19 +83,7 @@ It measures:
 - PM2.5
 - PM10
 
-**Status:** Required
-
----
-
-## Station Enclosure
-
-<div align="center">
-  <img src="images/pms5003-enclosure.jpg" alt="Station Enclosure" width="45%">
-</div>
-
-### Purpose
-
-The enclosure protects the station electronics and supports proper airflow around the installed sensors.
+The sensor is supplied in its own enclosure with an integrated fan that ensures controlled airflow through the sensing chamber.
 
 **Status:** Required
 
@@ -139,7 +127,7 @@ Provides stable power to the Raspberry Pi and connected sensors.
 
 ### Purpose
 
-Protects the station from direct sunlight and rain and helps reduce temperature bias caused by solar radiation.
+The TFA Radiation Shield protects the station from direct sunlight and precipitation while allowing natural airflow around the environmental sensors. It helps reduce temperature measurement bias caused by solar radiation and is recommended for outdoor installations.
 
 **Status:** Recommended
 
