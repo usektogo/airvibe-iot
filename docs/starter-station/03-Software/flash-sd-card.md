@@ -3,8 +3,8 @@
 **Document ID:** DOC 4  
 **Category:** 03-Software  
 **Status:** Released  
-**Version:** 1.0.0  
-**Last Updated:** 2026-07-03  
+**Version:** 1.0.1  
+**Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
 **Reference Image:** `2023-05-03-raspios-bullseye-armhf-lite.img.xz`  
@@ -67,7 +67,7 @@ Verify the selected storage device carefully before beginning the write process.
 # Step 1 — Open Raspberry Pi Imager
 
 <div align="center">
-  <img src="images/01-raspberry-pi-imager-start.jpg" alt="Raspberry Pi Imager Start" width="80%">
+  <img src="images/01-raspberry-pi-imager-start.jpg" alt="Raspberry Pi Imager Start" width="60%">
 </div>
 
 Open Raspberry Pi Imager.
@@ -85,7 +85,7 @@ The interface may differ slightly in other Raspberry Pi Imager versions.
 # Step 2 — Select the Operating System Image
 
 <div align="center">
-  <img src="images/02-select-custom-image.jpg" alt="Select Custom Image" width="80%">
+  <img src="images/02-select-custom-image.jpg" alt="Select Custom Image" width="60%">
 </div>
 
 Select:
@@ -99,7 +99,7 @@ The **Use custom** option allows the verified AirVibe reference operating system
 # Step 3 — Select the Reference Image
 
 <div align="center">
-  <img src="images/03-select-bullseye-image.jpg" alt="Select Bullseye Image" width="80%">
+  <img src="images/03-select-bullseye-image.jpg" alt="Select Bullseye Image" width="60%">
 </div>
 
 Browse to the downloaded operating system image and select:
@@ -123,7 +123,7 @@ For information about obtaining and verifying the image, see:
 # Step 4 — Select the Storage Device
 
 <div align="center">
-  <img src="images/04-select-storage.jpg" alt="Select Storage" width="80%">
+  <img src="images/04-select-storage.jpg" alt="Select Storage" width="60%">
 </div>
 
 Insert the microSD card into the card reader.
@@ -141,7 +141,7 @@ Selecting the wrong device may erase data from another drive connected to the co
 # Step 5 — Verify the Image and Storage Selection
 
 <div align="center">
-  <img src="images/05-image-and-storage-selected.jpg" alt="Image and Storage Selected" width="80%">
+  <img src="images/05-image-and-storage-selected.jpg" alt="Image and Storage Selected" width="60%">
 </div>
 
 Verify that:
@@ -156,7 +156,7 @@ Proceed only after both selections have been confirmed.
 # Step 6 — Open Advanced Options
 
 <div align="center">
-  <img src="images/06-open-advanced-options.jpg" alt="Open Advanced Options" width="80%">
+  <img src="images/06-open-advanced-options.jpg" alt="Open Advanced Options" width="60%">
 </div>
 
 Select the gear icon to open the advanced configuration menu.
@@ -168,7 +168,7 @@ The advanced options configure the system before the first boot.
 # Step 7 — Configure the System
 
 <div align="center">
-  <img src="images/07-configure-hostname-ssh-wifi.jpg" alt="Configure Hostname, SSH and Wi-Fi" width="80%">
+  <img src="images/07-configure-hostname-ssh-wifi.jpg" alt="Configure Hostname, SSH and Wi-Fi" width="60%">
 </div>
 
 Configure the following settings:
@@ -256,7 +256,7 @@ Verify that the operating system image and storage device remain correctly selec
 # Step 9 — Write the Operating System Image
 
 <div align="center">
-  <img src="images/08-write-sd-card.jpg" alt="Write SD Card" width="80%">
+  <img src="images/08-write-sd-card.jpg" alt="Write SD Card" width="60%">
 </div>
 
 Select **Write** to begin writing the operating system image to the microSD card.
@@ -274,7 +274,7 @@ Do not continue unless the correct storage device has been selected.
 # Step 10 — Wait for Writing and Verification
 
 <div align="center">
-  <img src="images/09-writing-sd-card.jpg" alt="Writing SD Card" width="80%">
+  <img src="images/09-writing-sd-card.jpg" alt="Writing SD Card" width="60%">
 </div>
 
 Raspberry Pi Imager performs two operations:
@@ -296,7 +296,7 @@ Allow both operations to complete successfully.
 # Step 11 — Confirm Successful Completion
 
 <div align="center">
-  <img src="images/10-write-complete.jpg" alt="Write Complete" width="80%">
+  <img src="images/10-write-complete.jpg" alt="Write Complete" width="60%">
 </div>
 
 When Raspberry Pi Imager reports that writing has completed successfully, select **Continue**.
@@ -323,7 +323,7 @@ Remove the card from the card reader only after the computer confirms that it ca
 # Step 13 — Insert the Prepared microSD Card
 
 <div align="center">
-  <img src="images/11-insert-prepared-microsd-card.jpg" alt="Insert Prepared microSD Card" width="80%">
+  <img src="images/11-insert-prepared-microsd-card.jpg" alt="Insert Prepared microSD Card" width="60%">
 </div>
 
 Insert the prepared microSD card into the Raspberry Pi.
