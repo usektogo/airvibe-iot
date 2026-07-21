@@ -1,7 +1,7 @@
 # DOC 3 — AirVibe Starter Station v1 Assembly Guide
 
 **Document ID:** DOC 3  
-**Version:** 1.0.1  
+**Version:** 1.0.2  
 **Status:** Released  
 **Last Updated:** 2026-07-21
 
@@ -147,8 +147,27 @@ The hardware is ready for operating system installation.
 
 ---
 
+## Completion Check
+
+Before continuing, verify that:
+
+- [ ] the microSD card is fully inserted
+- [ ] the PMS5003 cable is securely connected
+- [ ] the Enviro+ board is fully seated on the GPIO header
+- [ ] the PMS5003 sensor is connected
+- [ ] the power supply is connected to the **PWR** connector
+
+---
+
+## Related Documents
+
+- [DOC 1 — Hardware](../01-Hardware/hardware.md)
+- [DOC 2 — Bill of Materials (BOM)](../01-Hardware/bill-of-materials.md)
+
+---
+
 ## Next Document
 
 Continue with:
 
-`03-Operating-System/flash-sd-card.md`
+[DOC 4 — Operating System Installation](../03-Operating-System/flash-sd-card.md)
