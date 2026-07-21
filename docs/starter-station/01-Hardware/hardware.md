@@ -81,13 +81,13 @@ It measures:
 
 ---
 
-## PMS5003 Enclosure
+## Station Enclosure
 
-![PMS5003 Enclosure](images/pms5003-enclosure.jpg)
+![Station Enclosure](images/pms5003-enclosure.jpg)
 
 ### Purpose
 
-The enclosure contains the PMS5003 sensor and fan assembly and ensures proper airflow through the sensor.
+The enclosure protects the station electronics and supports proper airflow around the installed sensors.
 
 **Status:** Required
 
@@ -157,25 +157,6 @@ The following technologies and features are outside the scope of the Starter Sta
 - Grafana installation
 - Docker
 - Advanced cloud deployments
-
----
-
-# Image Files
-
-Create the following directory structure:
-
-```text
-01-Hardware/
-├── hardware.md
-└── images/
-    ├── raspberry-pi-zero-w.jpg
-    ├── enviro-plus.jpg
-    ├── pms5003.jpg
-    ├── pms5003-enclosure.jpg
-    ├── microsd-card.jpg
-    ├── power-supply.jpg
-    └── tfa-radiation-shield.jpg
-```
 
 ---
 
