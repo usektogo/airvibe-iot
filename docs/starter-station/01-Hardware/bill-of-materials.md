@@ -1,9 +1,9 @@
 # DOC 2 — AirVibe Starter Station v1 Bill of Materials (BOM)
 
 **Document ID:** DOC 2  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 **Status:** Released  
-**Last Updated:** 2026-07-03
+**Last Updated:** 2026-07-21
 
 ---
 
@@ -92,8 +92,14 @@ Before ordering components:
 
 ---
 
+# Related Documents
+
+- [DOC 1 — Hardware](hardware.md)
+
+---
+
 ## Next Document
 
 Continue with:
 
-`02-Assembly/assembly.md`
+[DOC 3 — Assembly Guide](../02-Assembly/assembly.md)
