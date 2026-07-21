@@ -21,7 +21,9 @@ The hardware selected for Starter Station v1 is intentionally simple, affordable
 
 ## Raspberry Pi Zero W v1
 
-![Raspberry Pi Zero W](images/raspberry-pi-zero-w.jpg)
+<div align="center">
+  <img src="images/raspberry-pi-zero-w.jpg" alt="Raspberry Pi Zero W" width="45%">
+</div>
 
 ### Purpose
 
@@ -39,7 +41,9 @@ The Raspberry Pi Zero W acts as the central computer of the station.
 
 ## Pimoroni Enviro+
 
-![Pimoroni Enviro+](images/enviro-plus.jpg)
+<div align="center">
+  <img src="images/enviro-plus.jpg" alt="Pimoroni Enviro+" width="45%">
+</div>
 
 ### Purpose
 
@@ -65,7 +69,9 @@ These measurements are intentionally excluded from Starter Station v1 and are no
 
 ## PMS5003
 
-![PMS5003](images/pms5003.jpg)
+<div align="center">
+  <img src="images/pms5003.jpg" alt="PMS5003" width="45%">
+</div>
 
 ### Purpose
 
@@ -83,7 +89,9 @@ It measures:
 
 ## Station Enclosure
 
-![Station Enclosure](images/pms5003-enclosure.jpg)
+<div align="center">
+  <img src="images/pms5003-enclosure.jpg" alt="Station Enclosure" width="45%">
+</div>
 
 ### Purpose
 
@@ -95,7 +103,9 @@ The enclosure protects the station electronics and supports proper airflow aroun
 
 ## microSD Card
 
-![microSD Card](images/microsd-card.jpg)
+<div align="center">
+  <img src="images/microsd-card.jpg" alt="microSD Card" width="45%">
+</div>
 
 ### Recommended Specification
 
@@ -109,7 +119,9 @@ The enclosure protects the station electronics and supports proper airflow aroun
 
 ## Raspberry Pi Power Supply
 
-![Raspberry Pi Power Supply](images/power-supply.jpg)
+<div align="center">
+  <img src="images/power-supply.jpg" alt="Raspberry Pi Power Supply" width="45%">
+</div>
 
 ### Purpose
 
@@ -121,7 +133,9 @@ Provides stable power to the Raspberry Pi and connected sensors.
 
 ## TFA Radiation Shield
 
-![TFA Radiation Shield](images/tfa-radiation-shield.jpg)
+<div align="center">
+  <img src="images/tfa-radiation-shield.jpg" alt="TFA Radiation Shield" width="45%">
+</div>
 
 ### Purpose
 
