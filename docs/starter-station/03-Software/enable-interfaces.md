@@ -35,7 +35,9 @@ Before starting, ensure that:
 
 # Step 1 — Open Raspberry Pi Configuration
 
-![Raspberry Pi Software Configuration Tool](images/doc-06-figure-01-raspi-config-main-menu.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-01-raspi-config-main-menu.jpg" alt="Raspberry Pi Software Configuration Tool" width="80%">
+</div>
 
 Open the Raspberry Pi Software Configuration Tool.
 
@@ -51,7 +53,9 @@ Select **Interface Options**.
 
 # Step 2 — Open Interface Options
 
-![Interface Options](images/doc-06-figure-02-interface-options.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-02-interface-options.jpg" alt="Interface Options" width="80%">
+</div>
 
 From the main menu, select **Interface Options**.
 
@@ -64,13 +68,17 @@ The AirVibe Starter Station requires the following hardware interfaces:
 
 # Step 3 — Enable I2C
 
-![Enable I2C](images/doc-06-figure-03-enable-i2c.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-03-enable-i2c.jpg" alt="Enable I2C" width="80%">
+</div>
 
 Select **I5 I2C**.
 
 When prompted to enable the ARM I2C interface, select **<Yes>**.
 
-![I2C Enabled](images/doc-06-figure-04-i2c-enabled.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-04-i2c-enabled.jpg" alt="I2C Enabled" width="80%">
+</div>
 
 When the confirmation message appears:
 
@@ -84,7 +92,9 @@ The Raspberry Pi returns to the **Interface Options** menu.
 
 # Step 4 — Disable the Serial Login Shell
 
-![Disable Serial Login Shell](images/doc-06-figure-05-serial-port-login-shell.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-05-serial-port-login-shell.jpg" alt="Disable Serial Login Shell" width="80%">
+</div>
 
 Select **I6 Serial Port**.
 
@@ -100,11 +110,15 @@ The serial login shell must be disabled before enabling the hardware serial inte
 
 # Step 5 — Enable the Hardware Serial Interface
 
-![Enable Serial Port Hardware](images/doc-06-figure-06-enable-serial-port-hardware.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-06-enable-serial-port-hardware.jpg" alt="Enable Serial Port Hardware" width="80%">
+</div>
 
 When prompted to enable the hardware serial interface, select **<Yes>**.
 
-![Serial Port Enabled](images/doc-06-figure-07-serial-port-enabled.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-07-serial-port-enabled.jpg" alt="Serial Port Enabled" width="80%">
+</div>
 
 When the confirmation message appears:
 
@@ -119,7 +133,9 @@ The Raspberry Pi returns to the **Interface Options** menu.
 
 # Step 6 — Reboot the Raspberry Pi
 
-![Reboot Required](images/doc-06-figure-08-reboot-required.jpg)
+<div align="center">
+  <img src="images/doc-06-figure-08-reboot-required.jpg" alt="Reboot Required" width="80%">
+</div>
 
 Press **Finish** to exit the Raspberry Pi Software Configuration Tool.
 
