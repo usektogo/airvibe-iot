@@ -3,12 +3,10 @@
 **Document ID:** DOC 5  
 **Category:** 03-Software  
 **Status:** Released  
-**Version:** 1.1.0  
+**Version:** 1.1.1  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
-**Reference Image:** `2023-05-03-raspios-bullseye-armhf-lite.img.xz`  
-**Reference Hostname:** `aq-off`  
 **Reference Network Connection:** Wi-Fi only  
 **Reference Discovery Tool:** Advanced IP Scanner  
 **Reference SSH Client:** PuTTY  
@@ -30,7 +28,7 @@ The procedure covers:
 - connecting through SSH using PuTTY
 - verifying and updating the operating system
 
-The AirVibe Starter Station reference implementation uses Wi-Fi only. Ethernet is not part of this procedure.
+The AirVibe Starter Station procedure uses Wi-Fi only. Ethernet is not part of this workflow.
 
 ---
 
@@ -39,7 +37,7 @@ The AirVibe Starter Station reference implementation uses Wi-Fi only. Ethernet i
 Before starting, ensure that:
 
 - The verified AirVibe reference operating system image has been written to the microSD card.
-- Hostname `aq-off` was configured in Raspberry Pi Imager.
+- A hostname was configured in Raspberry Pi Imager.
 - The correct Wi-Fi network name and password were configured.
 - The correct wireless LAN country was configured.
 - SSH was enabled.
@@ -48,19 +46,21 @@ Before starting, ensure that:
 - Advanced IP Scanner is installed on the Windows computer.
 - PuTTY is installed on the Windows computer.
 
+Keep a record of the hostname configured during imaging. The hostname shown in screenshots is an example and may differ from the hostname used for the actual station.
+
 ---
 
 # Critical Network Requirement
 
 > **Important**
 >
-> The Raspberry Pi and the Windows computer must be connected to the same local network.
+> The Raspberry Pi and the Windows computer must be connected to the same local Wi-Fi network.
 >
 > The Raspberry Pi connects through the Wi-Fi network configured in Raspberry Pi Imager. The computer must be connected to that same network before scanning or attempting an SSH connection.
 
 A computer connected to a different Wi-Fi network, guest network, mobile hotspot, or isolated network segment may not be able to discover or reach the Raspberry Pi.
 
-Do not continue until the computer's network connection has been confirmed.
+Do not continue until the computer's active Wi-Fi connection has been confirmed.
 
 ---
 
@@ -110,15 +110,17 @@ Proceed only when both devices are expected to be on the same local network.
 
 # Step 4 — Locate the Raspberry Pi
 
-Open **Advanced IP Scanner**.
+Open **Advanced IP Scanner** and scan the local network.
 
-Scan the local network and look for the reference hostname:
+Look for the hostname configured during the Raspberry Pi Imager procedure.
+
+Example:
 
 ```text
-aq-off
+aq-station
 ```
 
-Record the IP address shown for `aq-off`.
+Record the IP address shown for the station.
 
 Example:
 
@@ -126,7 +128,9 @@ Example:
 192.168.1.120
 ```
 
-The assigned address will depend on the local network and may change after a restart unless a DHCP reservation is configured.
+The hostname and IP address shown above are examples only. Use the values that belong to the actual station.
+
+The assigned IP address depends on the local network and may change after a restart unless a DHCP reservation is configured.
 
 ## If the Hostname Is Not Displayed
 
@@ -153,7 +157,7 @@ Use the following sequence:
 1. Confirm again that the computer is connected to the same Wi-Fi network configured for the Raspberry Pi.
 2. Wait another **3–5 minutes**.
 3. Run a new scan in Advanced IP Scanner.
-4. Check whether `aq-off` or a new IP address appears.
+4. Check whether the configured hostname or a new IP address appears.
 5. If the station is still not visible after sufficient waiting, disconnect the Raspberry Pi power supply.
 6. Wait approximately **10 seconds**.
 7. Reconnect power.
@@ -186,19 +190,25 @@ Replace `192.168.1.120` with the address reported by Advanced IP Scanner.
 
 A reply confirms that the station is reachable from the computer.
 
-You may also test the hostname:
+You may also test the configured hostname:
 
 ```cmd
-ping aq-off.local
+ping <configured-hostname>.local
+```
+
+Example:
+
+```cmd
+ping aq-station.local
 ```
 
 ### Note
 
 The `.local` hostname depends on multicast DNS support and may not work on every Windows or network configuration.
 
-Failure of `ping aq-off.local` does not prove that the Raspberry Pi is offline. Use the IP address from Advanced IP Scanner as the reference connection method.
+Failure of the `.local` hostname does not prove that the Raspberry Pi is offline. Use the IP address from Advanced IP Scanner as the primary connection method.
 
-Some networks or firewall configurations may also block ping while SSH remains available. Continue with PuTTY when the IP address is known.
+Some networks or firewall configurations may block ping while SSH remains available. Continue with PuTTY when the IP address is known.
 
 ---
 
@@ -252,13 +262,15 @@ Run:
 hostname
 ```
 
-Expected result:
+Verify that the displayed hostname matches the hostname configured in Raspberry Pi Imager.
+
+Example:
 
 ```text
-aq-off
+aq-station
 ```
 
-If a different hostname is shown, stop and verify whether the correct microSD card and Raspberry Pi were used.
+If the hostname does not match the configured value, verify that the correct microSD card and Raspberry Pi are being used.
 
 ---
 
@@ -361,11 +373,11 @@ Reconnect through PuTTY using the current IP address.
 Confirm that:
 
 - [ ] The Raspberry Pi completed its first boot.
-- [ ] The computer and Raspberry Pi were connected to the same local network.
-- [ ] `aq-off` or its assigned IP address was located with Advanced IP Scanner.
-- [ ] The station was reachable by IP address.
+- [ ] The computer and Raspberry Pi were connected to the same local Wi-Fi network.
+- [ ] The station hostname or assigned IP address was located with Advanced IP Scanner.
+- [ ] The station was reachable by IP address or available through SSH.
 - [ ] A PuTTY SSH session was established successfully.
-- [ ] The reported hostname is `aq-off`.
+- [ ] The reported hostname matches the hostname configured in Raspberry Pi Imager.
 - [ ] Internet connectivity was verified.
 - [ ] Disk space was verified.
 - [ ] Package update and upgrade commands completed without errors.
