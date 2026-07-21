@@ -3,7 +3,7 @@
 **Document ID:** DOC 4  
 **Category:** 03-Software  
 **Status:** Released  
-**Version:** 1.1.0  
+**Version:** 1.1.1  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
@@ -16,7 +16,7 @@
 
 # Overview
 
-This document describes how to prepare a microSD card for the AirVibe Starter Station reference implementation using Raspberry Pi Imager.
+This document describes how to prepare a microSD card for the AirVibe Starter Station using Raspberry Pi Imager.
 
 The procedure writes the verified AirVibe reference operating system image to the microSD card and configures the settings required for a headless first boot over Wi-Fi.
 
@@ -26,14 +26,15 @@ This document is based on the AirVibe reference operating system described in **
 
 # Reference Configuration
 
-The verified AirVibe Starter Station uses:
+The verified AirVibe Starter Station procedure uses:
 
 - Raspberry Pi OS Lite Legacy (Bullseye) 32-bit
 - reference image `2023-05-03-raspios-bullseye-armhf-lite.img.xz`
-- hostname `aq-off`
 - Wi-Fi network access
 - SSH remote access
 - no monitor, keyboard, mouse, or Ethernet connection
+
+The station hostname is selected during imaging and should uniquely identify the station on the local network.
 
 For information about the operating system selection, supported hardware, image checksum, and engineering rationale, see:
 
@@ -50,6 +51,7 @@ Before starting, ensure that:
 - A compatible microSD card is available.
 - A microSD card reader is connected to the computer.
 - The Wi-Fi network name and password are available.
+- A suitable hostname has been selected for the station.
 - Any required files on the microSD card have been backed up.
 
 ### Important
@@ -157,7 +159,7 @@ The advanced options configure the system before the first boot.
 
 ---
 
-# Step 7 — Configure the Reference System
+# Step 7 — Configure the System
 
 <div align="center">
   <img src="images/07-configure-hostname-ssh-wifi.jpg" alt="Configure Hostname, SSH and Wi-Fi" width="60%">
@@ -167,11 +169,24 @@ Configure the following settings.
 
 ## Hostname
 
-Use the verified reference hostname:
+Enter a hostname that uniquely identifies the station on the local network.
+
+Example:
 
 ```text
-aq-off
+aq-station
 ```
+
+The hostname shown in the screenshot and example is not mandatory. Use a hostname appropriate for the actual station.
+
+The hostname should:
+
+- be unique on the local network
+- use lowercase letters where possible
+- avoid spaces
+- remain consistent in the deployment records
+
+Record the configured hostname. It will be used to identify and verify the station during the first boot procedure.
 
 ## User Account
 
@@ -195,11 +210,11 @@ Configure:
 
 ### Important
 
-The AirVibe Starter Station reference implementation connects through Wi-Fi only.
+The AirVibe Starter Station procedure connects through Wi-Fi only.
 
 Enter the Wi-Fi details carefully. Incorrect settings will prevent the Raspberry Pi from appearing on the network after the first boot.
 
-The computer used for the first boot procedure must later be connected to the same local network as the Raspberry Pi.
+The computer used for the first boot procedure must later be connected to the same local Wi-Fi network as the Raspberry Pi.
 
 ## Locale
 
@@ -219,7 +234,7 @@ Review the configured settings and save the advanced options.
 
 Before continuing, confirm that:
 
-- hostname is `aq-off`
+- the selected hostname is recorded
 - the correct Wi-Fi network is configured
 - the wireless LAN country is correct
 - SSH is enabled
@@ -303,7 +318,7 @@ Before continuing, confirm that:
 
 - [ ] The verified AirVibe reference image was written successfully.
 - [ ] Raspberry Pi Imager completed data verification without errors.
-- [ ] Hostname `aq-off` was configured.
+- [ ] A suitable station hostname was configured and recorded.
 - [ ] The correct Wi-Fi network and wireless LAN country were configured.
 - [ ] SSH was enabled.
 - [ ] The station username and password were recorded.
