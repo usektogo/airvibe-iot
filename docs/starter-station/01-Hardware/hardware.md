@@ -1,7 +1,7 @@
 # DOC 1 — AirVibe Starter Station v1 Hardware
 
 **Document ID:** DOC 1  
-**Version:** 1.0.1  
+**Version:** 1.0.2  
 **Status:** Released  
 **Last Updated:** 2026-07-21
 
@@ -22,7 +22,7 @@ The hardware selected for Starter Station v1 is intentionally simple, affordable
 ## Raspberry Pi Zero W v1
 
 <div align="center">
-  <img src="images/raspberry-pi-zero-w.jpg" alt="Raspberry Pi Zero W" width="45%">
+  <img src="images/raspberry-pi-zero-w.jpg" alt="Raspberry Pi Zero W" width="300">
 </div>
 
 ### Purpose
@@ -42,7 +42,7 @@ The Raspberry Pi Zero W acts as the central computer of the station.
 ## Pimoroni Enviro+
 
 <div align="center">
-  <img src="images/enviro-plus.jpg" alt="Pimoroni Enviro+" width="45%">
+  <img src="images/enviro-plus.jpg" alt="Pimoroni Enviro+" width="300">
 </div>
 
 ### Purpose
@@ -70,7 +70,7 @@ These measurements are intentionally excluded from Starter Station v1 and are no
 ## PMS5003
 
 <div align="center">
-  <img src="images/pms5003.jpg" alt="PMS5003" width="45%">
+  <img src="images/pms5003.jpg" alt="PMS5003" width="300">
 </div>
 
 ### Purpose
@@ -92,7 +92,7 @@ The sensor is supplied in its own enclosure with an integrated fan that ensures 
 ## microSD Card
 
 <div align="center">
-  <img src="images/microsd-card.jpg" alt="microSD Card" width="45%">
+  <img src="images/microsd-card.jpg" alt="microSD Card" width="300">
 </div>
 
 ### Recommended Specification
@@ -108,7 +108,7 @@ The sensor is supplied in its own enclosure with an integrated fan that ensures 
 ## Raspberry Pi Power Supply
 
 <div align="center">
-  <img src="images/power-supply.jpg" alt="Raspberry Pi Power Supply" width="45%">
+  <img src="images/power-supply.jpg" alt="Raspberry Pi Power Supply" width="300">
 </div>
 
 ### Purpose
@@ -122,7 +122,7 @@ Provides stable power to the Raspberry Pi and connected sensors.
 ## TFA Radiation Shield
 
 <div align="center">
-  <img src="images/tfa-radiation-shield.jpg" alt="TFA Radiation Shield" width="45%">
+  <img src="images/tfa-radiation-shield.jpg" alt="TFA Radiation Shield" width="300">
 </div>
 
 ### Purpose
