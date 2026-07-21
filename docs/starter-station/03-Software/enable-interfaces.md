@@ -3,7 +3,7 @@
 **Document ID:** DOC 6  
 **Category:** 03-Software  
 **Status:** Released  
-**Version:** 1.0.1  
+**Version:** 1.0.2  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
@@ -16,9 +16,7 @@
 
 This document describes how to enable the hardware interfaces required by the AirVibe Starter Station using the Raspberry Pi Software Configuration Tool (`raspi-config`).
 
-The procedure enables the I2C interface and the hardware serial interface (UART), both of which are required by the AirVibe Starter Station reference implementation.
-
-This document is based on the verified AirVibe reference implementation and has been validated on the AirVibe reference station.
+The procedure enables the I2C interface and the hardware serial interface (UART), both of which are required by the verified AirVibe Starter Station reference implementation.
 
 ---
 
@@ -28,8 +26,8 @@ Before starting, ensure that:
 
 - DOC 5 — First Boot has been completed successfully.
 - Raspberry Pi OS Lite Legacy (Bullseye) 32-bit is running.
-- You are connected to the Raspberry Pi using SSH.
-- You are logged in with a user account that has `sudo` privileges.
+- An SSH connection to the Raspberry Pi has been established.
+- The current user account has `sudo` privileges.
 
 ---
 
@@ -39,7 +37,7 @@ Before starting, ensure that:
   <img src="images/doc-06-figure-01-raspi-config-main-menu.jpg" alt="Raspberry Pi Software Configuration Tool" width="60%">
 </div>
 
-Open the Raspberry Pi Software Configuration Tool.
+Run:
 
 ```bash
 sudo raspi-config
@@ -56,8 +54,6 @@ Select **Interface Options**.
 <div align="center">
   <img src="images/doc-06-figure-02-interface-options.jpg" alt="Interface Options" width="60%">
 </div>
-
-From the main menu, select **Interface Options**.
 
 The AirVibe Starter Station requires the following hardware interfaces:
 
@@ -104,7 +100,7 @@ When prompted to allow a login shell over the serial interface, select **No**.
 
 The AirVibe Starter Station uses the Raspberry Pi hardware serial interface to communicate with the PMS5003 particulate matter sensor.
 
-The serial login shell must be disabled before enabling the hardware serial interface.
+The serial login shell must be disabled so that the hardware serial interface remains available to the sensor.
 
 ---
 
@@ -120,7 +116,7 @@ When prompted to enable the hardware serial interface, select **Yes**.
   <img src="images/doc-06-figure-07-serial-port-enabled.jpg" alt="Serial Port Enabled" width="60%">
 </div>
 
-When the confirmation message appears:
+Confirm that the result states:
 
 - The serial login shell is disabled.
 - The serial interface is enabled.
@@ -137,7 +133,7 @@ The Raspberry Pi returns to the **Interface Options** menu.
   <img src="images/doc-06-figure-08-reboot-required.jpg" alt="Reboot Required" width="60%">
 </div>
 
-Press **Finish** to exit the Raspberry Pi Software Configuration Tool.
+Select **Finish** to exit the Raspberry Pi Software Configuration Tool.
 
 When prompted:
 
@@ -145,75 +141,76 @@ When prompted:
 
 Select **Yes**.
 
-Allow the Raspberry Pi to restart completely before reconnecting using SSH.
+The SSH session closes while the Raspberry Pi restarts.
 
-Reconnect using:
+Wait at least **2–3 minutes** before reconnecting. Use PuTTY and the current IP address identified with Advanced IP Scanner, as described in DOC 5.
 
-```bash
-ssh {username}@{hostname}.local
-```
-
-or
-
-```bash
-ssh {username}@{ip-address}
-```
+If the previous IP address no longer responds, scan the network again before reconnecting.
 
 ---
 
-# Final Verification
+# Step 7 — Verify the Hardware Interfaces
 
-After reconnecting, verify that the required hardware interfaces are available.
+After reconnecting through SSH, verify that the required hardware interfaces are available.
 
-Verify the I2C interface.
+## Verify I2C
+
+Run:
 
 ```bash
 ls /dev/i2c*
 ```
 
-Example output:
+Expected result:
 
 ```text
 /dev/i2c-1
-/dev/i2c-2
 ```
 
-Verify the primary hardware serial interface.
+Additional I2C device entries may also be present, depending on the Raspberry Pi configuration.
+
+The verification is successful when at least one `/dev/i2c-*` device is listed.
+
+## Verify the Hardware Serial Interface
+
+Run:
 
 ```bash
 ls -l /dev/serial0
 ```
 
-Example output:
+Example result:
 
 ```text
 lrwxrwxrwx ... /dev/serial0 -> ttyS0
 ```
 
-The `serial0` device always points to the primary hardware serial interface used by the AirVibe Starter Station.
+The exact target may differ by Raspberry Pi model and system configuration. The verification is successful when `/dev/serial0` exists and resolves to an available serial device.
 
-If both commands complete successfully, the required hardware interfaces have been configured correctly.
+Do not continue until both interface checks complete successfully.
 
 ---
 
-# Final Verification Checklist
+# Completion Check
 
-- [ ] Raspberry Pi Software Configuration Tool opened successfully.
-- [ ] I2C interface enabled.
-- [ ] Serial login shell disabled.
-- [ ] Hardware serial interface enabled.
-- [ ] Raspberry Pi rebooted successfully.
-- [ ] SSH connection re-established.
-- [ ] I2C interface verified.
-- [ ] Hardware serial interface verified.
-- [ ] System ready for Enviro+ installation.
+Confirm that:
+
+- [ ] I2C was enabled in `raspi-config`.
+- [ ] The serial login shell was disabled.
+- [ ] The hardware serial interface was enabled.
+- [ ] The Raspberry Pi rebooted successfully.
+- [ ] The SSH connection was re-established.
+- [ ] At least one `/dev/i2c-*` device is available.
+- [ ] `/dev/serial0` exists and resolves to a serial device.
+
+The required Raspberry Pi hardware interfaces are now configured and verified.
 
 ---
 
 # Related Documents
 
-- DOC 5 — First Boot (`first-boot.md`)
-- REFERENCE DOC A — Reference Operating System
+- [DOC 5 — First Boot](first-boot.md)
+- [REFERENCE DOC A — Reference Operating System](../00-Reference/reference-os.md)
 
 ---
 
@@ -221,4 +218,4 @@ If both commands complete successfully, the required hardware interfaces have be
 
 Continue with:
 
-`DOC 7 — install-enviro-plus.md`
+[DOC 7 — Install Enviro+](install-enviro-plus.md)
