@@ -3,7 +3,7 @@
 **Document ID:** DOC 4  
 **Category:** 03-Software  
 **Status:** Released  
-**Version:** 1.0.1  
+**Version:** 1.1.0  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
@@ -18,27 +18,22 @@
 
 This document describes how to prepare a microSD card for the AirVibe Starter Station reference implementation using Raspberry Pi Imager.
 
-The procedure writes the verified AirVibe reference operating system image to the microSD card and configures the settings required for a headless first boot.
-
-The operating system must be installed before the microSD card is inserted into the Raspberry Pi.
+The procedure writes the verified AirVibe reference operating system image to the microSD card and configures the settings required for a headless first boot over Wi-Fi.
 
 This document is based on the AirVibe reference operating system described in **REFERENCE DOC A — Reference Operating System**.
 
 ---
 
-# Reference Platform
+# Reference Configuration
 
-The AirVibe Starter Station documentation is based on:
+The verified AirVibe Starter Station uses:
 
-- Raspberry Pi OS Lite
-- Legacy Bullseye
-- 32-bit
-
-Reference image:
-
-`2023-05-03-raspios-bullseye-armhf-lite.img.xz`
-
-This operating system image is used by the verified AirVibe reference implementation.
+- Raspberry Pi OS Lite Legacy (Bullseye) 32-bit
+- reference image `2023-05-03-raspios-bullseye-armhf-lite.img.xz`
+- hostname `aq-off`
+- Wi-Fi network access
+- SSH remote access
+- no monitor, keyboard, mouse, or Ethernet connection
 
 For information about the operating system selection, supported hardware, image checksum, and engineering rationale, see:
 
@@ -54,6 +49,7 @@ Before starting, ensure that:
 - The verified reference image has been downloaded.
 - A compatible microSD card is available.
 - A microSD card reader is connected to the computer.
+- The Wi-Fi network name and password are available.
 - Any required files on the microSD card have been backed up.
 
 ### Important
@@ -108,8 +104,6 @@ Browse to the downloaded operating system image and select:
 2023-05-03-raspios-bullseye-armhf-lite.img.xz
 ```
 
-This is the operating system image used by the AirVibe Starter Station reference implementation.
-
 ### Important
 
 Confirm that the selected filename exactly matches the verified AirVibe reference image.
@@ -132,8 +126,6 @@ Select **Choose Storage** and choose the correct microSD card.
 
 ### Important
 
-Verify the storage device carefully.
-
 Selecting the wrong device may erase data from another drive connected to the computer.
 
 ---
@@ -146,8 +138,8 @@ Selecting the wrong device may erase data from another drive connected to the co
 
 Verify that:
 
-- the correct operating system image is selected
-- the correct microSD card is selected
+- the reference operating system image is selected
+- the intended microSD card is selected
 
 Proceed only after both selections have been confirmed.
 
@@ -165,73 +157,51 @@ The advanced options configure the system before the first boot.
 
 ---
 
-# Step 7 — Configure the System
+# Step 7 — Configure the Reference System
 
 <div align="center">
   <img src="images/07-configure-hostname-ssh-wifi.jpg" alt="Configure Hostname, SSH and Wi-Fi" width="60%">
 </div>
 
-Configure the following settings:
+Configure the following settings.
 
-- hostname
-- username
-- password
-- wireless LAN
-- SSH
-- locale
-- timezone
-- keyboard layout
+## Hostname
 
-### Note
-
-Values shown in screenshots are examples only.
-
-Use settings appropriate for the intended AirVibe Starter Station deployment.
-
-Example hostnames include:
+Use the verified reference hostname:
 
 ```text
 aq-off
-airvibe-test
-starter-station
 ```
 
-### Hostname Requirements
+## User Account
 
-The hostname should:
+Configure the username and password recorded for the station deployment.
 
-- uniquely identify the station on the network
-- use lowercase letters where possible
-- avoid spaces
-- remain consistent throughout the deployment documentation
+Keep these credentials available. They are required when connecting through PuTTY during the first boot procedure.
 
-### SSH Configuration
+## SSH
 
-Enable SSH before writing the operating system image.
+Enable SSH.
 
-SSH access is required because the AirVibe Starter Station uses a headless installation workflow.
+SSH is required because the AirVibe Starter Station uses a headless installation workflow.
 
-The station does not require:
+## Wireless LAN
 
-- a monitor
-- a keyboard
-- a mouse
+Configure:
 
-After the first boot, the station should be accessible remotely through the network.
-
-### Wireless LAN Configuration
-
-When using Wi-Fi, configure:
-
-- wireless network name
-- wireless network password
+- Wi-Fi network name (SSID)
+- Wi-Fi password
 - wireless LAN country
 
-Verify that the wireless network details are correct before continuing.
+### Important
 
-Incorrect Wi-Fi settings may prevent the station from being accessible after the first boot.
+The AirVibe Starter Station reference implementation connects through Wi-Fi only.
 
-### Locale Configuration
+Enter the Wi-Fi details carefully. Incorrect settings will prevent the Raspberry Pi from appearing on the network after the first boot.
+
+The computer used for the first boot procedure must later be connected to the same local network as the Raspberry Pi.
+
+## Locale
 
 Configure the appropriate:
 
@@ -245,11 +215,18 @@ These settings should match the installation location.
 
 # Step 8 — Save the Advanced Options
 
-Review the configured settings.
+Review the configured settings and save the advanced options.
 
-Save the advanced options and return to the main Raspberry Pi Imager window.
+Before continuing, confirm that:
 
-Verify that the operating system image and storage device remain correctly selected.
+- hostname is `aq-off`
+- the correct Wi-Fi network is configured
+- the wireless LAN country is correct
+- SSH is enabled
+- the username and password are recorded
+- locale, timezone, and keyboard layout are correct
+
+Return to the main Raspberry Pi Imager window and verify that the operating system image and storage device remain correctly selected.
 
 ---
 
@@ -282,12 +259,7 @@ Raspberry Pi Imager performs two operations:
 1. Writes the operating system image.
 2. Verifies the written data.
 
-Do not:
-
-- remove the microSD card
-- disconnect the card reader
-- shut down the computer
-- interrupt Raspberry Pi Imager
+Do not remove the microSD card, disconnect the card reader, shut down the computer, or interrupt Raspberry Pi Imager.
 
 Allow both operations to complete successfully.
 
@@ -301,22 +273,15 @@ Allow both operations to complete successfully.
 
 When Raspberry Pi Imager reports that writing has completed successfully, select **Continue**.
 
-The microSD card now contains:
-
-- the AirVibe reference operating system
-- the configured hostname
-- the configured user account
-- SSH configuration
-- network configuration
-- locale settings
+The microSD card now contains the reference operating system and the configuration required for Wi-Fi and SSH access.
 
 ---
 
-# Step 12 — Remove the microSD Card
+# Step 12 — Safely Remove the microSD Card
 
-Safely eject the microSD card from the operating system.
+Safely eject the microSD card from the computer.
 
-Remove the card from the card reader only after the computer confirms that it can be removed safely.
+Remove the card from the card reader only after the operating system confirms that it can be removed safely.
 
 ---
 
@@ -328,58 +293,34 @@ Remove the card from the card reader only after the computer confirms that it ca
 
 Insert the prepared microSD card into the Raspberry Pi.
 
-Ensure that the card is fully seated before connecting power to the station.
-
-Do not power on the Raspberry Pi until the microSD card has been inserted correctly.
+Ensure that the card is fully seated before connecting power.
 
 ---
 
-# Final Verification
+# Completion Check
 
-Before continuing, verify that:
+Before continuing, confirm that:
 
-- Raspberry Pi Imager completed without errors.
-- Image verification completed successfully.
-- The correct reference image was used.
-- The correct microSD card was selected.
-- SSH was enabled.
-- The hostname was configured.
-- User credentials were configured.
-- Network settings were configured.
-- Locale and timezone settings were configured.
-- The microSD card was safely ejected.
-- The microSD card was inserted correctly into the Raspberry Pi.
+- [ ] The verified AirVibe reference image was written successfully.
+- [ ] Raspberry Pi Imager completed data verification without errors.
+- [ ] Hostname `aq-off` was configured.
+- [ ] The correct Wi-Fi network and wireless LAN country were configured.
+- [ ] SSH was enabled.
+- [ ] The station username and password were recorded.
+- [ ] The microSD card was safely ejected and inserted into the Raspberry Pi.
 
-Completing these checks confirms that the microSD card is ready for the AirVibe Starter Station first boot procedure.
+The Raspberry Pi is now ready for the first boot procedure.
 
----
+### Important
 
-# Final Verification Checklist
-
-- [ ] Raspberry Pi Imager opened successfully.
-- [ ] Verified AirVibe reference image selected.
-- [ ] Correct microSD card selected.
-- [ ] Image and storage selections verified.
-- [ ] Hostname configured.
-- [ ] Username and password configured.
-- [ ] SSH enabled.
-- [ ] Wireless LAN configured if required.
-- [ ] Wireless LAN country configured.
-- [ ] Locale configured.
-- [ ] Timezone configured.
-- [ ] Keyboard layout configured.
-- [ ] Operating system image written successfully.
-- [ ] Written data verified successfully.
-- [ ] microSD card safely ejected.
-- [ ] microSD card inserted into the Raspberry Pi.
-- [ ] System ready for the first boot procedure.
+Do not expect the Raspberry Pi to appear on the network immediately after power is connected. The first boot may take several minutes. Follow the waiting, discovery, and troubleshooting procedure in DOC 5.
 
 ---
 
 # Related Documents
 
 - [REFERENCE DOC A — Reference Operating System](../00-Reference/reference-os.md)
-- DOC 5 — First Boot (`first-boot.md`)
+- [DOC 5 — First Boot](first-boot.md)
 
 ---
 
@@ -387,4 +328,4 @@ Completing these checks confirms that the microSD card is ready for the AirVibe 
 
 Continue with:
 
-`DOC 5 — first-boot.md`
+[DOC 5 — First Boot](first-boot.md)
