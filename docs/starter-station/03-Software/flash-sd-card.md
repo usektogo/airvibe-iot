@@ -66,7 +66,9 @@ Verify the selected storage device carefully before beginning the write process.
 
 # Step 1 — Open Raspberry Pi Imager
 
-![Raspberry Pi Imager Start](images/01-raspberry-pi-imager-start.jpg)
+<div align="center">
+  <img src="images/01-raspberry-pi-imager-start.jpg" alt="Raspberry Pi Imager Start" width="80%">
+</div>
 
 Open Raspberry Pi Imager.
 
@@ -82,7 +84,9 @@ The interface may differ slightly in other Raspberry Pi Imager versions.
 
 # Step 2 — Select the Operating System Image
 
-![Select Custom Image](images/02-select-custom-image.jpg)
+<div align="center">
+  <img src="images/02-select-custom-image.jpg" alt="Select Custom Image" width="80%">
+</div>
 
 Select:
 
@@ -94,7 +98,9 @@ The **Use custom** option allows the verified AirVibe reference operating system
 
 # Step 3 — Select the Reference Image
 
-![Select Bullseye Image](images/03-select-bullseye-image.jpg)
+<div align="center">
+  <img src="images/03-select-bullseye-image.jpg" alt="Select Bullseye Image" width="80%">
+</div>
 
 Browse to the downloaded operating system image and select:
 
@@ -116,7 +122,9 @@ For information about obtaining and verifying the image, see:
 
 # Step 4 — Select the Storage Device
 
-![Select Storage](images/04-select-storage.jpg)
+<div align="center">
+  <img src="images/04-select-storage.jpg" alt="Select Storage" width="80%">
+</div>
 
 Insert the microSD card into the card reader.
 
@@ -132,7 +140,9 @@ Selecting the wrong device may erase data from another drive connected to the co
 
 # Step 5 — Verify the Image and Storage Selection
 
-![Image and Storage Selected](images/05-image-and-storage-selected.jpg)
+<div align="center">
+  <img src="images/05-image-and-storage-selected.jpg" alt="Image and Storage Selected" width="80%">
+</div>
 
 Verify that:
 
@@ -145,7 +155,9 @@ Proceed only after both selections have been confirmed.
 
 # Step 6 — Open Advanced Options
 
-![Open Advanced Options](images/06-open-advanced-options.jpg)
+<div align="center">
+  <img src="images/06-open-advanced-options.jpg" alt="Open Advanced Options" width="80%">
+</div>
 
 Select the gear icon to open the advanced configuration menu.
 
@@ -155,7 +167,9 @@ The advanced options configure the system before the first boot.
 
 # Step 7 — Configure the System
 
-![Configure Hostname, SSH and Wi-Fi](images/07-configure-hostname-ssh-wifi.jpg)
+<div align="center">
+  <img src="images/07-configure-hostname-ssh-wifi.jpg" alt="Configure Hostname, SSH and Wi-Fi" width="80%">
+</div>
 
 Configure the following settings:
 
@@ -241,7 +255,9 @@ Verify that the operating system image and storage device remain correctly selec
 
 # Step 9 — Write the Operating System Image
 
-![Write SD Card](images/08-write-sd-card.jpg)
+<div align="center">
+  <img src="images/08-write-sd-card.jpg" alt="Write SD Card" width="80%">
+</div>
 
 Select **Write** to begin writing the operating system image to the microSD card.
 
@@ -257,7 +273,9 @@ Do not continue unless the correct storage device has been selected.
 
 # Step 10 — Wait for Writing and Verification
 
-![Writing SD Card](images/09-writing-sd-card.jpg)
+<div align="center">
+  <img src="images/09-writing-sd-card.jpg" alt="Writing SD Card" width="80%">
+</div>
 
 Raspberry Pi Imager performs two operations:
 
@@ -277,7 +295,9 @@ Allow both operations to complete successfully.
 
 # Step 11 — Confirm Successful Completion
 
-![Write Complete](images/10-write-complete.jpg)
+<div align="center">
+  <img src="images/10-write-complete.jpg" alt="Write Complete" width="80%">
+</div>
 
 When Raspberry Pi Imager reports that writing has completed successfully, select **Continue**.
 
@@ -302,7 +322,9 @@ Remove the card from the card reader only after the computer confirms that it ca
 
 # Step 13 — Insert the Prepared microSD Card
 
-![Insert Prepared microSD Card](images/11-insert-prepared-microsd-card.jpg)
+<div align="center">
+  <img src="images/11-insert-prepared-microsd-card.jpg" alt="Insert Prepared microSD Card" width="80%">
+</div>
 
 Insert the prepared microSD card into the Raspberry Pi.
 
@@ -357,7 +379,7 @@ Completing these checks confirms that the microSD card is ready for the AirVibe 
 # Related Documents
 
 - [REFERENCE DOC A — Reference Operating System](../00-Reference/reference-os.md)
-- [DOC 5 — First Boot](first-boot.md)
+- DOC 5 — First Boot (`first-boot.md`)
 
 ---
 
@@ -365,4 +387,4 @@ Completing these checks confirms that the microSD card is ready for the AirVibe 
 
 Continue with:
 
-[DOC 5 — First Boot](first-boot.md)
+`DOC 5 — first-boot.md`
