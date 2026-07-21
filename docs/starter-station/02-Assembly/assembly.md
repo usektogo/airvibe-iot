@@ -170,4 +170,4 @@ Before continuing, verify that:
 
 Continue with:
 
-`03-Operating-System/flash-sd-card.md`
+- [03-Operating-System/flash-sd-card.md](../03-Operating-System/flash-sd-card.md)
