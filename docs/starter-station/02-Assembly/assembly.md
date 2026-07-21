@@ -19,7 +19,9 @@ Before starting, verify that all required components listed in **DOC 2 — Bill 
 
 ## Step 1 — Components Overview
 
-![Components Overview](images/01-components-overview.jpg)
+<div align="center">
+  <img src="images/01-components-overview.jpg" alt="Components Overview" width="65%">
+</div>
 
 The AirVibe Starter Station consists of the following components:
 
@@ -36,7 +38,9 @@ Verify that all components are present before proceeding.
 
 ## Step 2 — Insert the microSD Card
 
-![Insert microSD Card](images/02-insert-microsd-card.jpg)
+<div align="center">
+  <img src="images/02-insert-microsd-card.jpg" alt="Insert microSD Card" width="65%">
+</div>
 
 Insert the microSD card into the Raspberry Pi Zero W.
 
@@ -50,7 +54,9 @@ The microSD card contains the operating system and configuration files required 
 
 ## Step 3 — Connect the PMS5003 Sensor
 
-![Connect PMS5003 Cable](images/03-connect-pms5003-cable.jpg)
+<div align="center">
+  <img src="images/03-connect-pms5003-cable.jpg" alt="Connect PMS5003 Cable" width="65%">
+</div>
 
 Before mounting the Enviro+ board onto the Raspberry Pi, connect the PMS5003 cable to the Enviro+ board.
 
@@ -58,7 +64,9 @@ This makes the connection easier and reduces stress on the GPIO header.
 
 ### Connector Detail
 
-![PMS5003 Connector Detail](images/03-connect-pms5003-detail.jpg)
+<div align="center">
+  <img src="images/03-connect-pms5003-detail.jpg" alt="PMS5003 Connector Detail" width="65%">
+</div>
 
 The PMS5003 connector is keyed and fits in only one orientation.
 
@@ -78,7 +86,9 @@ If resistance is encountered, verify that the connector orientation is correct.
 
 ## Step 4 — Mount the Enviro+ Board
 
-![Mount Enviro+ Board](images/04-mount-enviro-plus.jpg)
+<div align="center">
+  <img src="images/04-mount-enviro-plus.jpg" alt="Mount Enviro+ Board" width="65%">
+</div>
 
 Align the Enviro+ board with the Raspberry Pi GPIO header.
 
@@ -88,7 +98,9 @@ Ensure that all header pins enter the connector correctly.
 
 ### Side View
 
-![Enviro+ Side View](images/04-enviro-side-view.jpg)
+<div align="center">
+  <img src="images/04-enviro-side-view.jpg" alt="Enviro+ Side View" width="65%">
+</div>
 
 The Enviro+ board should sit evenly on the GPIO header without visible gaps.
 
@@ -104,7 +116,9 @@ This helps prevent accidental damage to the card while handling the board.
 
 ## Step 5 — Verify Physical Assembly
 
-![Verify Physical Assembly](images/05-verify-physical-assembly.jpg)
+<div align="center">
+  <img src="images/05-verify-physical-assembly.jpg" alt="Verify Physical Assembly" width="65%">
+</div>
 
 Verify that:
 
