@@ -1,7 +1,7 @@
 # DOC 1 — AirVibe Starter Station v1 Hardware
 
 **Document ID:** DOC 1  
-**Version:** 1.0.2  
+**Version:** 1.0.3  
 **Status:** Released  
 **Last Updated:** 2026-07-21
 
@@ -162,8 +162,14 @@ The following technologies and features are outside the scope of the Starter Sta
 
 ---
 
+# Related Documents
+
+- [DOC 2 — Bill of Materials](bill-of-materials.md)
+
+---
+
 ## Next Document
 
 Continue with:
 
-`02-Assembly/assembly.md`
+[DOC 3 — Assembly Guide](../02-Assembly/assembly.md)
