@@ -1,9 +1,9 @@
 # DOC 6 — Enable Interfaces
 
 **Document ID:** DOC 6  
-**Category:** 03-Software  
+**Category:** 03-Software 
+**Version:** 1.0.2
 **Status:** Released  
-**Version:** 1.0.2  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
