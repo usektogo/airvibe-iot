@@ -1,9 +1,9 @@
 # REFERENCE DOC A — Reference Operating System
 
 **Document ID:** REFERENCE DOC A  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 **Status:** Released  
-**Last Updated:** 2026-07-03
+**Last Updated:** 2026-07-22
 
 ---
 
@@ -29,11 +29,9 @@ Rather than relying on the latest available operating system, the project uses a
 
 Operating system:
 
-- Raspberry Pi OS Lite
-- Legacy Bullseye
-- 32-bit
+- Raspberry Pi OS Lite Legacy (Bullseye) 32-bit
 
-Reference image:
+**Reference image**
 
 `2023-05-03-raspios-bullseye-armhf-lite.img.xz`
 
@@ -84,13 +82,12 @@ Bullseye Legacy continues to support the proven workflow used across existing Ai
 
 The selected operating system has been:
 
-- verified on the `aq-off` reference station
-- verified on multiple AirVibe deployments
+- verified on multiple AirVibe Starter Station deployments
 - proven stable on Raspberry Pi Zero W v1
 - validated for headless deployment
 - validated for SSH-first installation
 - validated for classic Wi-Fi configuration
-- used throughout the complete AirVibe documentation project
+- used throughout the complete AirVibe Starter Station documentation
 
 This provides a consistent and reproducible installation process for every documented Starter Station.
 
@@ -118,7 +115,7 @@ Reproducibility is more important than running the latest software release.
 
 Download the Raspberry Pi OS Lite Legacy Bullseye (32-bit) image from the official Raspberry Pi download archive.
 
-Reference image:
+**Reference image**
 
 `2023-05-03-raspios-bullseye-armhf-lite.img.xz`
 
@@ -126,11 +123,13 @@ This image is later selected in Raspberry Pi Imager using:
 
 **Choose OS → Use custom**
 
+Future AirVibe releases may provide the verified reference image as a downloadable asset in the corresponding GitHub Release. When available, this allows users to obtain the exact operating system image verified for the AirVibe Starter Station reference implementation.
+
 ---
 
 # Image Verification
 
-Reference image:
+**Reference image**
 
 `2023-05-03-raspios-bullseye-armhf-lite.img.xz`
 
@@ -148,33 +147,15 @@ The checksum above applies to the verified reference image used throughout the A
 
 ---
 
-# GitHub Release Distribution
-
-Future AirVibe releases may include the reference operating system image as part of a GitHub Release.
-
-Example:
-
-```text
-AirVibe Starter Station v1
-├── 2023-05-03-raspios-bullseye-armhf-lite.img.xz
-└── SHA256SUMS.txt
-```
-
----
-
 # Summary
 
 The AirVibe Starter Station reference implementation is based on:
 
-- Raspberry Pi OS Lite
-- Legacy Bullseye
-- 32-bit
+- Raspberry Pi OS Lite Legacy (Bullseye) 32-bit
 
-Reference image:
+**Reference image**
 
 `2023-05-03-raspios-bullseye-armhf-lite.img.xz`
-
-All AirVibe Starter Station documentation is based on this verified reference operating system and installation image to ensure a consistent and reproducible deployment.
 
 ---
 
@@ -182,4 +163,4 @@ All AirVibe Starter Station documentation is based on this verified reference op
 
 Continue with:
 
-`DOC 4 — Operating System Installation`
+- [03-Software/flash-sd-card.md](../03-Software/flash-sd-card.md)
