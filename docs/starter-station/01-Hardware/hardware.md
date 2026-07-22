@@ -146,6 +146,10 @@ The reference hardware supports the following measurements:
 - PM2.5
 - PM10
 
+The Enviro+ board also includes a MICS6814 gas sensor capable of detecting changes in reducing gases, oxidising gases, and ammonia (NH₃).
+
+Although the sensor is sensitive to gases such as carbon monoxide (CO), nitrogen dioxide (NO₂), and ammonia (NH₃), obtaining reliable concentration measurements requires careful calibration under controlled conditions. For this reason, gas measurements are not included in the AirVibe Starter Station v1 reference implementation.
+
 ---
 
 # Related Documents
