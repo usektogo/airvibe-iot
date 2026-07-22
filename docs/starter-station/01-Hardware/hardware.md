@@ -154,7 +154,6 @@ The following technologies and features are outside the scope of the Starter Sta
 
 - Gas sensor measurements
 - TSL2591
-- MQTT
 - Tailscale
 - Grafana installation
 - Docker
