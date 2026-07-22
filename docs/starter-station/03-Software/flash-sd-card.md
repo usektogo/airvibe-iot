@@ -300,13 +300,15 @@ Remove the card from the card reader only after the operating system confirms th
 
 ---
 
-# Step 13 — Insert the Prepared microSD Card
+## Step 13 — Insert the Prepared microSD Card
 
 <div align="center">
-  <img src="images/11-insert-prepared-microsd-card.jpg" alt="Insert Prepared microSD Card" width="60%">
+  <img src="images/02-insert-microsd-card.jpg" alt="Insert Prepared microSD Card" width="300">
 </div>
 
-Insert the prepared microSD card into the Raspberry Pi.
+The hardware assembly should already be completed as described in DOC 3 — Assembly Guide.
+
+Insert the prepared microSD card into the Raspberry Pi Zero W.
 
 Ensure that the card is fully seated before connecting power.
 
