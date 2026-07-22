@@ -2,8 +2,8 @@
 
 **Document ID:** DOC 5  
 **Category:** 03-Software  
-**Status:** Released  
 **Version:** 1.1.1  
+**Status:** Released  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
