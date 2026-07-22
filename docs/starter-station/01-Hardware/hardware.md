@@ -156,7 +156,7 @@ The following technologies and features are outside the scope of the Starter Sta
 - TSL2591
 - Tailscale
 - Grafana installation
-- 
+
 ---
 
 # Related Documents
