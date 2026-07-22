@@ -44,6 +44,6 @@ The current documentation set covers:
 
 The next planned document is:
 
-- [DOC 7 — Install Enviro+](03-Software/install-enviro-plus.md)
+- DOC 7 — Install Enviro+
 
 DOC 7 is currently being verified and will be added to the released documentation set after review and approval.
