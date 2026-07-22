@@ -148,17 +148,6 @@ The reference hardware supports the following measurements:
 
 ---
 
-# Not Included in Starter Station v1
-
-The following technologies and features are outside the scope of the Starter Station v1 documentation:
-
-- Gas sensor measurements
-- TSL2591
-- Tailscale
-- Grafana installation
-
----
-
 # Related Documents
 
 - [DOC 2 — Bill of Materials](bill-of-materials.md)
