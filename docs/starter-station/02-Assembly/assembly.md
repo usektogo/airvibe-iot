@@ -36,23 +36,7 @@ Verify that all components are present before proceeding.
 
 ---
 
-## Step 2 — Insert the microSD Card
-
-<div align="center">
-  <img src="images/02-insert-microsd-card.jpg" alt="Insert microSD Card" width="300">
-</div>
-
-Insert the microSD card into the Raspberry Pi Zero W.
-
-Ensure that the card is fully seated in the slot.
-
-### Note
-
-The microSD card contains the operating system and configuration files required for the station to operate.
-
----
-
-## Step 3 — Connect the PMS5003 Sensor
+## Step 2 — Connect the PMS5003 Sensor
 
 <div align="center">
   <img src="images/03-connect-pms5003-cable.jpg" alt="Connect PMS5003 Cable" width="300">
@@ -84,7 +68,7 @@ If resistance is encountered, verify that the connector orientation is correct.
 
 ---
 
-## Step 4 — Mount the Enviro+ Board
+## Step 3 — Mount the Enviro+ Board
 
 <div align="center">
   <img src="images/04-mount-enviro-plus.jpg" alt="Mount Enviro+ Board" width="300">
@@ -114,7 +98,7 @@ This helps prevent accidental damage to the card while handling the board.
 
 ---
 
-## Step 5 — Verify Physical Assembly
+## Step 4 — Verify Physical Assembly
 
 <div align="center">
   <img src="images/05-verify-physical-assembly.jpg" alt="Verify Physical Assembly" width="300">
@@ -122,7 +106,6 @@ This helps prevent accidental damage to the card while handling the board.
 
 Verify that:
 
-- the microSD card is installed
 - the PMS5003 cable is connected securely
 - the Enviro+ board is mounted correctly
 - the PMS5003 sensor is connected
@@ -143,7 +126,9 @@ Always connect the power supply to the **PWR** connector.
 
 The physical assembly of the AirVibe Starter Station is now complete.
 
-The hardware is ready for operating system installation.
+The hardware is ready for software installation.
+
+The operating system will be prepared and installed on the microSD card in the next document.
 
 ---
 
@@ -151,7 +136,6 @@ The hardware is ready for operating system installation.
 
 Before continuing, verify that:
 
-- [ ] the microSD card is fully inserted
 - [ ] the PMS5003 cable is securely connected
 - [ ] the Enviro+ board is fully seated on the GPIO header
 - [ ] the PMS5003 sensor is connected
