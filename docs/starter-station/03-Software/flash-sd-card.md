@@ -1,9 +1,9 @@
 # DOC 4 — Operating System Installation
 
 **Document ID:** DOC 4  
-**Category:** 03-Software  
+**Category:** 03-Software 
+**Version:** 1.1.1 
 **Status:** Released  
-**Version:** 1.1.1  
 **Last Updated:** 2026-07-21  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
