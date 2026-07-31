@@ -2,7 +2,7 @@
 
 **Document ID:** DOC 8  
 **Category:** 03-Software  
-**Version:** 0.2.1  
+**Version:** 0.2.2  
 **Status:** Draft  
 **Last Updated:** 2026-07-31  
 **Scope:** AirVibe Starter Station  
@@ -91,15 +91,13 @@ Pressure: 692.2 hPa
 Humidity: 67.2 %
 ```
 
+<div align="center">
+  <img src="images/doc-08-figure-01-bme280-readings.jpg" alt="BME280 temperature pressure and humidity readings" width="75%">
+</div>
+
+<p align="center"><strong>Figure 1.</strong> Verified BME280 temperature, pressure, and humidity readings on the AirVibe Starter Station.</p>
+
 The verification is successful when the command returns numeric temperature, pressure, and humidity values without an exception.
-
-## Figure Placement
-
-Insert the captured terminal screenshot immediately after the verified example result.
-
-Suggested caption:
-
-> **Figure 1.** Verified BME280 temperature, pressure, and humidity readings on the AirVibe Starter Station.
 
 ---
 
@@ -153,15 +151,13 @@ Verified example result:
 10: Lux=1135.83  Proximity=1
 ```
 
+<div align="center">
+  <img src="images/doc-08-figure-02-ltr559-readings.jpg" alt="LTR559 light and proximity readings" width="75%">
+</div>
+
+<p align="center"><strong>Figure 2.</strong> Functional verification of the LTR559 sensor showing changing light measurements and a proximity response.</p>
+
 The verification is successful when the Lux values respond to changing illumination and the proximity value responds when an object is moved near the sensor.
-
-## Figure Placement
-
-Insert the captured terminal screenshot immediately after the verified example result.
-
-Suggested caption:
-
-> **Figure 2.** Functional verification of the LTR559 sensor showing changing light measurements and a proximity response.
 
 ---
 
@@ -210,15 +206,13 @@ PM10 ug/m3 (atmos env): 13
 >10um in 0.1L air: 0
 ```
 
+<div align="center">
+  <img src="images/doc-08-figure-03-pms5003-readings.jpg" alt="PMS5003 particulate matter readings" width="75%">
+</div>
+
+<p align="center"><strong>Figure 3.</strong> Successful functional verification of the PMS5003 particulate matter sensor showing PM1.0, PM2.5, PM10, and particle-count measurements.</p>
+
 The verification is successful when the sensor returns numeric PM1.0, PM2.5, and PM10 values together with particle counts without a serial communication exception.
-
-## Figure Placement
-
-Insert the captured terminal screenshot immediately after the verified example result.
-
-Suggested caption:
-
-> **Figure 3.** Successful functional verification of the PMS5003 particulate matter sensor showing PM1.0, PM2.5, PM10, and particle-count measurements.
 
 ---
 
