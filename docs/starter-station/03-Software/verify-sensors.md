@@ -2,7 +2,7 @@
 
 **Document ID:** DOC 8  
 **Category:** 03-Software  
-**Version:** 0.1.0  
+**Version:** 0.1.1  
 **Status:** Draft  
 **Last Updated:** 2026-07-31  
 **Scope:** AirVibe Starter Station  
@@ -91,7 +91,13 @@ Humidity: 67.2 %
 
 The verification is successful when the command returns numeric temperature, pressure, and humidity values without an exception.
 
-A screenshot of the verified BME280 output has been captured for later inclusion.
+## Figure Placement
+
+Insert the captured terminal screenshot immediately after the verified example result.
+
+Suggested caption:
+
+> **Figure 1.** Verified BME280 temperature, pressure, and humidity readings on the AirVibe Starter Station.
 
 ---
 
@@ -103,13 +109,30 @@ A screenshot of the verified BME280 output has been captured for later inclusion
 - Virtual Environment: **Yes — `pimoroni`**
 - Current Directory: `~/enviroplus-python`
 
-Before running the measurement test, the installed module API was inspected:
+The installed module API was inspected and confirmed to expose the `LTR559` class and its light and proximity methods.
+
+An initial single-read test was performed:
 
 ```bash
-python -c "import ltr559; print([name for name in dir(ltr559) if not name.startswith('_')])"
+python -c "from ltr559 import LTR559; ltr = LTR559(); print('Lux:', ltr.get_lux()); print('Proximity:', ltr.get_proximity())"
 ```
 
-The installed module exposes the `LTR559` class. The measurement command is pending verification.
+Observed result:
+
+```text
+Lux: 0
+Proximity: 0
+```
+
+The same result was returned while the sensor was illuminated with a mobile-phone light. Therefore, the LTR559 sensor is **not yet verified**.
+
+The zero-value output must not be presented as a successful measurement until a repeatable response to changing light or proximity is demonstrated.
+
+## Figure Placement
+
+Do not include the zero-value screenshot as a successful verification figure.
+
+A screenshot will be inserted in this step only after the sensor returns a verified changing or non-zero measurement.
 
 ---
 
