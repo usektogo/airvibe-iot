@@ -2,7 +2,7 @@
 
 **Document ID:** DOC 8  
 **Category:** 03-Software  
-**Version:** 0.1.1  
+**Version:** 0.2.0  
 **Status:** Draft  
 **Last Updated:** 2026-07-31  
 **Scope:** AirVibe Starter Station  
@@ -109,30 +109,120 @@ Suggested caption:
 - Virtual Environment: **Yes — `pimoroni`**
 - Current Directory: `~/enviroplus-python`
 
-The installed module API was inspected and confirmed to expose the `LTR559` class and its light and proximity methods.
+A single reading immediately after sensor initialization may return zero values. Use repeated measurements and change the light level or move an object near the sensor during the test.
 
-An initial single-read test was performed:
+Run:
 
 ```bash
-python -c "from ltr559 import LTR559; ltr = LTR559(); print('Lux:', ltr.get_lux()); print('Proximity:', ltr.get_proximity())"
+python - <<'PY'
+from ltr559 import LTR559
+import time
+
+ltr = LTR559()
+
+for i in range(10):
+    print(
+        f"{i+1:2d}: "
+        f"Lux={ltr.get_lux():.2f}  "
+        f"Proximity={ltr.get_proximity()}"
+    )
+    time.sleep(1)
+PY
 ```
 
-Observed result:
+During the test:
+
+- Leave the sensor undisturbed for the first few readings.
+- Change the amount of light reaching the sensor.
+- Move a hand or object close to the proximity sensor.
+
+Verified example result:
 
 ```text
-Lux: 0
-Proximity: 0
+ 1: Lux=0.00     Proximity=0
+ 2: Lux=206.18   Proximity=0
+ 3: Lux=206.18   Proximity=0
+ 4: Lux=201.90   Proximity=0
+ 5: Lux=883.24   Proximity=0
+ 6: Lux=1231.25  Proximity=0
+ 7: Lux=1116.11  Proximity=0
+ 8: Lux=1100.70  Proximity=0
+ 9: Lux=1115.22  Proximity=0
+10: Lux=1135.83  Proximity=1
 ```
 
-The same result was returned while the sensor was illuminated with a mobile-phone light. Therefore, the LTR559 sensor is **not yet verified**.
-
-The zero-value output must not be presented as a successful measurement until a repeatable response to changing light or proximity is demonstrated.
+The verification is successful when the Lux values respond to changing illumination and the proximity value responds when an object is moved near the sensor.
 
 ## Figure Placement
 
-Do not include the zero-value screenshot as a successful verification figure.
+Insert the captured terminal screenshot immediately after the verified example result.
 
-A screenshot will be inserted in this step only after the sensor returns a verified changing or non-zero measurement.
+Suggested caption:
+
+> **Figure 2.** Functional verification of the LTR559 sensor showing changing light measurements and a proximity response.
+
+---
+
+# Step 4 — Verify the PMS5003 Particulate Matter Sensor
+
+## Execution Environment
+
+- Shell: Bash
+- Virtual Environment: **Yes — `pimoroni`**
+- Current Directory: `~/enviroplus-python`
+
+Run:
+
+```bash
+python - <<'PY'
+from pms5003 import PMS5003
+import time
+
+pms = PMS5003()
+
+print("Waiting for sensor...")
+time.sleep(10)
+
+data = pms.read()
+
+print(data)
+PY
+```
+
+The delay allows the sensor fan and measurement system to stabilize before the first reading is evaluated.
+
+Verified example result:
+
+```text
+PM1.0 ug/m3 (ultrafine particles): 11
+PM2.5 ug/m3 (combustion particles, organic compounds, metals): 13
+PM10 ug/m3 (dust, pollen, mould spores): 13
+PM1.0 ug/m3 (atmos env): 11
+PM2.5 ug/m3 (atmos env): 13
+PM10 ug/m3 (atmos env): 13
+>0.3um in 0.1L air: 56
+>0.5um in 0.1L air: 53
+>1.0um in 0.1L air: 9
+>2.5um in 0.1L air: 0
+>5.0um in 0.1L air: 0
+>10um in 0.1L air: 0
+```
+
+The verification is successful when the sensor returns numeric PM1.0, PM2.5, and PM10 values together with particle counts without a serial communication exception.
+
+## Figure Placement
+
+Insert the captured terminal screenshot immediately after the verified example result.
+
+Suggested caption:
+
+> **Figure 3.** Successful functional verification of the PMS5003 particulate matter sensor showing PM1.0, PM2.5, PM10, and particle-count measurements.
+
+---
+
+# Step 5 — Verify the LCD
+
+This step is pending verification.
 
 ---
 
@@ -141,8 +231,8 @@ A screenshot will be inserted in this step only after the sensor returns a verif
 - [x] Python virtual environment activated and verified.
 - [x] Enviro+ package imported successfully.
 - [x] BME280 temperature, pressure, and humidity readings verified.
-- [ ] LTR559 light and proximity readings verified.
-- [ ] PMS5003 particulate matter readings verified.
+- [x] LTR559 light and proximity responses verified.
+- [x] PMS5003 particulate matter readings verified.
 - [ ] LCD output verified.
 
 ---
