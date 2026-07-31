@@ -2,7 +2,7 @@
 
 **Document ID:** DOC 8  
 **Category:** 03-Software  
-**Version:** 0.2.2  
+**Version:** 0.3.0  
 **Status:** Draft  
 **Last Updated:** 2026-07-31  
 **Scope:** AirVibe Starter Station  
@@ -27,6 +27,7 @@ Before starting, ensure that:
 - DOC 7 — Install Enviro+ has been completed successfully.
 - The Raspberry Pi is connected to the complete AirVibe Starter Station hardware assembly.
 - An SSH connection to the Raspberry Pi has been established.
+- The current user account has `sudo` privileges.
 - The Pimoroni virtual environment exists at `~/.virtualenvs/pimoroni`.
 
 ---
@@ -101,13 +102,63 @@ The verification is successful when the command returns numeric temperature, pre
 
 ---
 
-# Step 3 — Verify the LTR559 Light and Proximity Sensor
+# Step 3 — Verify the I2C Devices
+
+## Execution Environment
+
+- Shell: Bash
+- Virtual Environment: **Yes or No**
+- Internet Connection: Required only when installing `i2c-tools`
+
+The `i2cdetect` command is provided by the `i2c-tools` package. If the command is not available, install it:
+
+```bash
+sudo apt install i2c-tools
+```
+
+When prompted to continue, enter:
+
+```text
+Y
+```
+
+Scan I2C bus 1:
+
+```bash
+i2cdetect -y 1
+```
+
+The verified AirVibe Starter Station detects:
+
+| I2C address | Device |
+|---|---|
+| `0x23` | LTR559 light and proximity sensor |
+| `0x49` | ADS1015 analogue-to-digital converter |
+| `0x76` | BME280 environmental sensor |
+
+<div align="center">
+  <img src="images/doc-08-figure-02-i2c-device-detection.jpg" alt="Detected Enviro Plus devices on I2C bus 1" width="75%">
+</div>
+
+<p align="center"><strong>Figure 2.</strong> The LTR559, ADS1015, and BME280 devices detected on I2C bus 1.</p>
+
+The verification is successful when addresses `23`, `49`, and `76` are present in the scan.
+
+---
+
+# Step 4 — Verify the LTR559 Light and Proximity Sensor
 
 ## Execution Environment
 
 - Shell: Bash
 - Virtual Environment: **Yes — `pimoroni`**
 - Current Directory: `~/enviroplus-python`
+
+If the virtual environment is not active, activate it:
+
+```bash
+source ~/.virtualenvs/pimoroni/bin/activate
+```
 
 A single reading immediately after sensor initialization may return zero values. Use repeated measurements and change the light level or move an object near the sensor during the test.
 
@@ -140,28 +191,28 @@ Verified example result:
 
 ```text
  1: Lux=0.00     Proximity=0
- 2: Lux=206.18   Proximity=0
- 3: Lux=206.18   Proximity=0
- 4: Lux=201.90   Proximity=0
- 5: Lux=883.24   Proximity=0
- 6: Lux=1231.25  Proximity=0
- 7: Lux=1116.11  Proximity=0
- 8: Lux=1100.70  Proximity=0
- 9: Lux=1115.22  Proximity=0
-10: Lux=1135.83  Proximity=1
+ 2: Lux=199.76   Proximity=0
+ 3: Lux=199.76   Proximity=0
+ 4: Lux=935.58   Proximity=2
+ 5: Lux=1713.83  Proximity=6
+ 6: Lux=1666.29  Proximity=6
+ 7: Lux=1652.11  Proximity=1
+ 8: Lux=961.84   Proximity=6
+ 9: Lux=972.92   Proximity=2
+10: Lux=202.88   Proximity=0
 ```
 
 <div align="center">
-  <img src="images/doc-08-figure-02-ltr559-readings.jpg" alt="LTR559 light and proximity readings" width="75%">
+  <img src="images/doc-08-figure-03-ltr559-readings.jpg" alt="LTR559 light and proximity readings" width="75%">
 </div>
 
-<p align="center"><strong>Figure 2.</strong> Functional verification of the LTR559 sensor showing changing light measurements and a proximity response.</p>
+<p align="center"><strong>Figure 3.</strong> Functional verification of the LTR559 sensor showing changing light measurements and proximity responses.</p>
 
 The verification is successful when the Lux values respond to changing illumination and the proximity value responds when an object is moved near the sensor.
 
 ---
 
-# Step 4 — Verify the PMS5003 Particulate Matter Sensor
+# Step 5 — Verify the PMS5003 Particulate Matter Sensor
 
 ## Execution Environment
 
@@ -207,10 +258,10 @@ PM10 ug/m3 (atmos env): 13
 ```
 
 <div align="center">
-  <img src="images/doc-08-figure-03-pms5003-readings.jpg" alt="PMS5003 particulate matter readings" width="75%">
+  <img src="images/doc-08-figure-04-pms5003-readings.jpg" alt="PMS5003 particulate matter readings" width="75%">
 </div>
 
-<p align="center"><strong>Figure 3.</strong> Successful functional verification of the PMS5003 particulate matter sensor showing PM1.0, PM2.5, PM10, and particle-count measurements.</p>
+<p align="center"><strong>Figure 4.</strong> Successful functional verification of the PMS5003 particulate matter sensor showing PM1.0, PM2.5, PM10, and particle-count measurements.</p>
 
 The verification is successful when the sensor returns numeric PM1.0, PM2.5, and PM10 values together with particle counts without a serial communication exception.
 
@@ -223,7 +274,8 @@ Confirm that:
 - [ ] The `pimoroni` virtual environment was activated successfully.
 - [ ] The Enviro+ Python package imported successfully.
 - [ ] The BME280 returned temperature, pressure, and humidity values.
-- [ ] The LTR559 returned changing light values and a proximity response.
+- [ ] The I2C scan detected addresses `23`, `49`, and `76`.
+- [ ] The LTR559 returned changing light values and proximity responses.
 - [ ] The PMS5003 returned PM1.0, PM2.5, and PM10 measurements.
 
 The AirVibe Starter Station sensors are now functionally verified.
