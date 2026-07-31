@@ -2,8 +2,8 @@
 
 **Document ID:** DOC 8  
 **Category:** 03-Software  
-**Version:** 0.3.0  
-**Status:** Draft  
+**Version:** 1.0.0  
+**Status:** Released  
 **Last Updated:** 2026-07-31  
 **Scope:** AirVibe Starter Station  
 **Reference Operating System:** Raspberry Pi OS Lite Legacy (Bullseye) 32-bit  
@@ -287,3 +287,13 @@ The AirVibe Starter Station sensors are now functionally verified.
 - [DOC 6 — Enable Interfaces](enable-interfaces.md)
 - [DOC 7 — Install Enviro+](install-enviro-plus.md)
 - [REFERENCE DOC A — Reference Operating System](../00-Reference/reference-os.md)
+
+---
+
+## Next Document
+
+The next planned document is:
+
+- DOC 9 — AirVibe Software Configuration
+
+This document is currently being prepared and will be added after verification.
