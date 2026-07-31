@@ -2,7 +2,7 @@
 
 **Document ID:** DOC 8  
 **Category:** 03-Software  
-**Version:** 0.2.0  
+**Version:** 0.2.1  
 **Status:** Draft  
 **Last Updated:** 2026-07-31  
 **Scope:** AirVibe Starter Station  
@@ -12,9 +12,11 @@
 
 # Overview
 
-This document verifies the AirVibe Starter Station hardware after completing DOC 7 — Install Enviro+.
+This document verifies the AirVibe Starter Station sensors after completing DOC 7 — Install Enviro+.
 
-The verification is performed one component at a time so that any failure can be isolated to a specific sensor or subsystem.
+The verification is performed one sensor at a time so that any failure can be isolated to a specific component or communication interface.
+
+The onboard LCD is not required by the AirVibe Starter Station reference implementation and is outside the scope of this document.
 
 ---
 
@@ -220,20 +222,17 @@ Suggested caption:
 
 ---
 
-# Step 5 — Verify the LCD
+# Completion Check
 
-This step is pending verification.
+Confirm that:
 
----
+- [ ] The `pimoroni` virtual environment was activated successfully.
+- [ ] The Enviro+ Python package imported successfully.
+- [ ] The BME280 returned temperature, pressure, and humidity values.
+- [ ] The LTR559 returned changing light values and a proximity response.
+- [ ] The PMS5003 returned PM1.0, PM2.5, and PM10 measurements.
 
-# Verification Progress
-
-- [x] Python virtual environment activated and verified.
-- [x] Enviro+ package imported successfully.
-- [x] BME280 temperature, pressure, and humidity readings verified.
-- [x] LTR559 light and proximity responses verified.
-- [x] PMS5003 particulate matter readings verified.
-- [ ] LCD output verified.
+The AirVibe Starter Station sensors are now functionally verified.
 
 ---
 
